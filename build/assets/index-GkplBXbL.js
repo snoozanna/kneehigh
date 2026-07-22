@@ -1,0 +1,1 @@
+Array.from(document.querySelectorAll(`[data-lightbox]`)).forEach(e=>{e.onclick=t=>{t.preventDefault(),basicLightbox.create(`<img src="${e.href}">`).show()}});

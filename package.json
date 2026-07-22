@@ -1,0 +1,16 @@
+{
+  "name": "starterkit-main",
+  "version": "1.0.0",
+  "description": "kneehigh",
+  "main": "index.js",
+  "scripts": {
+    "build": "vite build", 
+    "dev": "vite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "laravel-vite-plugin": "^3.1.3",
+    "vite": "^8.1.5"
+  }
+}

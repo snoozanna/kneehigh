@@ -1,0 +1,25 @@
+Title: Production 3
+
+----
+
+Text: [{"content":{"text":"<p>Cras pharetra tempus sapien, et consequat lectus posuere et. Praesent finibus lacinia odio et laoreet. Sed consectetur lorem at tortor tempor pretium. Vivamus laoreet fringilla mi vel pulvinar. </p>"},"id":"58e31da9-6aab-4cf6-968e-ae54a84e6898","isHidden":false,"type":"text"},{"content":{"text":"Maecenas a venenatis nisl. Fusce quis dui interdum, laoreet justo mattis, imperdiet risus.","citation":"Person"},"id":"b2ee8303-137a-49da-8dd4-06c508ddb8b7","isHidden":false,"type":"quote"},{"content":[],"id":"05738f24-e888-4263-8aa4-98f8995b92c7","isHidden":false,"type":"line"},{"content":{"text":"<p>Testibulum quis malesuada enim, eget fermentum nibh. Vestibulum nec luctus turpis, eu sodales nisi. Vestibulum tellus felis, vulputate sed euismod id, fermentum eget ligula. Suspendisse potenti.</p>"},"id":"cb0e1076-17f9-4aa4-8202-3bea8bcf02f1","isHidden":false,"type":"text"},{"content":{"images":["file://h2f5jtelbqjslhgf","file://cmgfh3iciaolpaub"],"caption":"Image gallery for production","ratio":"","crop":"false"},"id":"7ad6ddf9-44c4-4a8d-821b-265ad56ac623","isHidden":false,"type":"gallery"}]
+
+----
+
+Cover: - 'file://cmgfh3iciaolpaub'
+
+----
+
+Date: 1996-01-01
+
+----
+
+Author: []
+
+----
+
+Tags: 
+
+----
+
+Uuid: y42dshzv8nnlsjiw
