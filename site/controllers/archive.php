@@ -1,32 +1,62 @@
 <?php
-/**
- * Controllers allow you to separate the logic of your templates from your markup.
- * This is especially useful for complex logic, but also in general to keep your templates clean.
- *
- * In this example, we handle tag filtering and paginating notes in the controller,
- * before we pass the currently active tag and the notes to the template.
- *
- * More about controllers:
- * https://getkirby.com/docs/guide/templates/controllers
- */
+
 return function ($page) {
 
-    /**
-     * We use the collection helper to fetch the archive collection defined in `/site/collections/archive.php`
-     * 
-     * More about collections:
-     * https://getkirby.com/docs/guide/templates/collections
-     */
-    $archive = collection('archive');
+    // Base collection
+    $objects = $page
+        ->children()
+        ->listed()
+        ->sortBy('date', 'desc');
 
-    $tag = param('tag');
-    if (empty($tag) === false) {
-        $archive = $archive->filterBy('tags', $tag, ',');
+    // Active filters
+    $category   = get('category');
+    $production = get('production');
+    $person     = get('person');
+    $tag        = get('tag');
+
+    // Category
+    if ($category) {
+        $objects = $objects->filterBy('category', $category);
     }
 
-    return [
-        'tag'   => $tag,
-        'notes' => $archive->paginate(6)
-    ];
+    // Production (Pages field)
+    if ($production) {
+        $objects = $objects->filter(function ($item) use ($production) {
+            return $item->production()->toPage()?->slug() === $production;
+        });
+    }
 
+    // People (Pages field, multiple)
+    if ($person) {
+        $objects = $objects->filter(function ($item) use ($person) {
+            return in_array(
+                $person,
+                $item->people()->toPages()->pluck('slug')
+            );
+        });
+    }
+
+    // Tags
+    if ($tag) {
+        $objects = $objects->filterBy('tags', $tag, ',');
+    }
+
+    // Pagination
+    $objects = $objects->paginate(24);
+
+    return [
+        'objects' => $objects,
+        'pagination' => $objects->pagination(),
+
+        // Filter data
+        'productions' => site()->find('productions')->children()->listed(),
+        'people' => site()->find('people')->children()->listed(),
+        'tags' => $page->children()->listed()->pluck('tags', ',', true),
+
+        // Current filter values
+        'currentCategory' => $category,
+        'currentProduction' => $production,
+        'currentPerson' => $person,
+        'currentTag' => $tag,
+    ];
 };

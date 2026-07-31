@@ -16,12 +16,12 @@ columns:
     # (defined in `/site/blueprints/sections/productions.yml` twice with different page status and headline
     sections:
       drafts:
-        extends: sections/archive
+        extends: sections/archive-objects
         label: Drafts
         status: draft
 
       unlisted:
-        extends: sections/archive
+        extends: sections/archive-objects
         label: In Review
         status: unlisted
 
@@ -29,7 +29,9 @@ columns:
     # In the second column, we reuse the same section, this time for listed pages and with a different headline
     sections:
       listed:
-        extends: sections/archive
+        extends: sections/archive-objects
+        create:
+            - archive-object
         label: Published
         status: listed
         size: small

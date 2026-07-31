@@ -1,0 +1,22 @@
+name: field.blocks.faq.name
+icon: question
+fields:
+  heading:
+    label: Heading
+    type: writer
+    inline: true
+    marks: false
+  faq:
+    label: FAQ
+    type: structure
+    fields:
+      question:
+        label: Question
+        type: writer
+        inline: true
+        marks: false
+        placeholder: Type a question…
+      answer:
+        label: Answer
+        marks: true
+        type: writer

@@ -24,7 +24,6 @@
     </header>
     <?php if (($excerpt ?? true) !== false): ?>
     <div class="note-excerpt-text">
-      CARD PROD
       <?= $note->text()->toBlocks()->excerpt(280) ?>
     </div>
     <?php endif ?>

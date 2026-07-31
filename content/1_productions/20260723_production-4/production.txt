@@ -1,0 +1,25 @@
+Title: Production 4
+
+----
+
+Text: [{"content":{"text":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur viverra tellus in rhoncus ultricies. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras et scelerisque velit. Vivamus commodo arcu lectus, sed mattis enim porttitor vitae. Phasellus sed erat ut ipsum condimentum facilisis. Quisque gravida, sapien vitae luctus consequat, metus neque tempus elit, in dapibus erat leo a elit. Nulla interdum, quam nec sodales tempor, leo dolor imperdiet orci, sit amet rhoncus metus massa at odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tempor lectus id ipsum luctus pellentesque. Mauris non leo a turpis tincidunt scelerisque. Fusce vel suscipit felis. Aliquam vel purus at ligula tristique tincidunt in nec est. Praesent vestibulum feugiat tincidunt.</p>"},"id":"6161da41-4ab6-4850-82af-f5416d9233aa","isHidden":false,"type":"text"}]
+
+----
+
+Cover: - 'file://gwwxdhd8iymde4ec'
+
+----
+
+Date: 2026-07-23
+
+----
+
+Author: []
+
+----
+
+Tags: 
+
+----
+
+Uuid: tslddpo9k2defyfa

@@ -1,0 +1,29 @@
+Caption: 
+
+----
+
+Alt: 
+
+----
+
+Photographer: 
+
+----
+
+License: 
+
+----
+
+Link: 
+
+----
+
+Sort: 2
+
+----
+
+Uuid: nypfz7vtjioq0dua
+
+----
+
+Template: blocks/image

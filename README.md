@@ -45,4 +45,8 @@ If you are familiar with Git, you can clone Kirby's Starterkit repository from G
 
 ### power up
 
- composer start
+kirby
+composer start
+
+vite
+npm run dev

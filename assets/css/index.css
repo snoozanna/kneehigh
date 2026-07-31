@@ -431,4 +431,47 @@ hr {
   color: var(--color-text-grey);
 }
 
+/* ALBUM GALLERY  */
+.album-gallery {
+  line-height: 0;
+  columns: 1;
+  column-gap: 1.5rem;
+}
+.album-gallery li {
+  display: block;
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+}
+@media screen and (min-width: 60rem) {
+  .album-gallery {
+    columns: 2;
+  }
+}
 
+
+.archive-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--spacing-6);
+  list-style: none;
+  padding: 0;
+}
+
+.archive-gallery li {
+  margin: 0;
+}
+
+.archive-gallery a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.archive-gallery img {
+  display: block;
+  width: 100%;
+}
+
+.archive-gallery__content {
+  margin-top: .75rem;
+}

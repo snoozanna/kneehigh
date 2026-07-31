@@ -28,11 +28,12 @@
     we call a method like `children()` in this case
   */
   ?>
-  <?php if ($photographyPage = page('photography')): ?>
+  <?php if ($archivePage = page('archive')): ?>
   <ul class="home-grid">
-    <?php foreach ($photographyPage->children()->listed() as $album): ?>
+  
+      <?php foreach ($archivePage->children()->listed()->filterBy('is_featured', true) as $object): ?>
     <li>
-      <a href="<?= $album->url() ?>">
+      <a href="<?= $object->url() ?>">
         <figure>
           <?php
           /*
@@ -44,12 +45,12 @@
             size with Kirby's built-in image manipulation API
           */
           ?>
-          <?php if ($cover = $album->cover()): ?>
-          <img src="<?= $cover->resize(1024, 1024)->url() ?>" alt="<?= $cover->alt()->esc() ?>">
+          <?php if ($cover = $object->cover()): ?>
+          <img src="<?= $cover->resize(1024, 1024)->url() ?>" alt="<?= $object->alt()->esc() ?>">
           <?php endif ?>
           <figcaption>
             <span>
-              <span class="example-name"><?= $album->title()->esc() ?></span>
+              <span class="example-name"><?= $object->title()->esc() ?></span>
             </span>
           </figcaption>
         </figure>
@@ -58,4 +59,7 @@
     <?php endforeach ?>
   </ul>
   <?php endif ?>
+  <?php snippet('layouts', ['field' => $page->layout()])  ?>
+  <?= $page->text()->toBlocks() ?>
+
 <?php snippet('footer') ?>

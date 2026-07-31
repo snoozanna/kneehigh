@@ -1,0 +1,18 @@
+name: Archive Object
+icon: 📖
+preview: fields
+wysiwyg: true
+fields:
+  pages:
+    label: Archive Objects
+    type: pages
+    multiple: true
+    query: site.index.filterBy("intendedTemplate", "archive-object")
+    help: Select one or more archive objects to embed inline
+  display:
+    label: Display style
+    type: select
+    options:
+      card: Card (image + title + excerpt)
+      inline: Inline link
+    default: card

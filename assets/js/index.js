@@ -5,3 +5,4 @@ Array.from(document.querySelectorAll("[data-lightbox]")).forEach(element => {
     basicLightbox.create(`<img src="${element.href}">`).show();
   };
 });
+
