@@ -14,12 +14,12 @@
   <footer class="footer">
     <div class="grid">
       <div class="column" style="--columns: 8">
-        <h2><a href="https://getkirby.com">Made with Kirby</a></h2>
+        <h2><a href="https://getkirby.com">Lorem ipsum</a></h2>
         <p>
-          Kirby: the file-based CMS that adapts to any project, loved by developers and editors alike
+        Cras sit amet tellus nec leo luctus suscipit. 
         </p>
       </div>
-      <div class="column" style="--columns: 2">
+      <div class="column" style="--columns: 4">
         <h2>Pages</h2>
         <ul>
           <?php foreach ($site->children()->listed() as $example): ?>
@@ -27,7 +27,7 @@
           <?php endforeach ?>
         </ul>
       </div>
-      <div class="column" style="--columns: 2">
+      <!-- <div class="column" style="--columns: 2">
         <h2>Kirby</h2>
         <ul>
           <li><a href="https://getkirby.com">Website</a></li>
@@ -36,7 +36,7 @@
           <li><a href="https://chat.getkirby.com">Chat</a></li>
           <li><a href="https://github.com/getkirby">GitHub</a></li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </footer>
 
