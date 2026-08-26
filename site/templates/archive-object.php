@@ -25,7 +25,17 @@
 
 <article>
 
-  <?php snippet('intro') ?>
+<header class="h1">
+  <h1 class="img-caption">
+   <?php
+      $options = $page->blueprint()->field('format')['options'] ?? [];
+      $key = $page->format()->value();
+        $label = $options[$key] ?? $key;
+      ?>
+     <span class="img-caption__format"><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?></span>
+    <span><?= $page->description()->esc() ?></span>
+
+</header>
 
   <div class="grid">
 
@@ -47,10 +57,21 @@
             </p>
           <?php endif ?>
 
-          <?php if ($page->category()->isNotEmpty()): ?>
+          <?php if ($page->format()->isNotEmpty()): ?>
             <p>
-              <strong>Category:</strong>
-              <?= $page->category()->esc() ?>
+              <strong>Format:</strong>
+              <?php
+                $options = $page->blueprint()->field('format')['options'] ?? [];
+                $key = $page->format()->value();
+                $label = $options[$key] ?? $key;
+              ?>
+              <?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?>
+            </p>
+          <?php endif ?>
+          <?php if ($page->photographer_credit()->isNotEmpty()): ?>
+            <p>
+              <strong>Photographer:</strong>
+              <?= $page->photographer_credit()->esc() ?>
             </p>
           <?php endif ?>
 
@@ -66,31 +87,104 @@
     <p class="image-people">
         <strong>People:</strong>
 
-        <?php foreach ($page->people()->toPages() as $person): ?>
-            <a href="<?= $person->url() ?>">
-                <?= $person->title()->esc() ?>
-            </a><?= !$person->isLast() ? ', ' : '' ?>
-        <?php endforeach ?>
+        <?php
+          $peopleLinks = [];
+          foreach ($page->people()->toPages() as $person) {
+            $peopleLinks[] = '<a href="' . $person->url() . '">' . $person->title()->esc() . '</a>';
+          }
+          echo implode(', ', $peopleLinks);
+        ?>
 
     </p>
 <?php endif ?>
         </div>
             <br/>
+      <?php if ($page->format()->value() !== 'quote'): ?>
         <?= $page->text()->toBlocks() ?>
-
+     <?php endif ?>    
       </div>
 
     </div>
 
-    <!-- Right column -->
-    <div class="column" style="--columns: 8">
+   <!-- Right column -->
+    <?php $columnSpan = 8 ?>
+    <div class="column" style="--columns: <?= $columnSpan ?>">
 
-      <?php if ($gallery->isNotEmpty()): ?>
+     <?php if ($page->format()->value() === 'quote'): ?>
+        <div class="archive-quote">
+          <blockquote>
+            <?= $page->text()->toBlocks() ?>
+          </blockquote>
+        </div>
+      <?php endif ?>       
+      <!-- VIDEO -->
+      <?php if ($page->video_url()->isNotEmpty()): ?>
 
-        <ul class="album-gallery">
+        <div class="archive-media archive-media--video">
+          <div class="video" style="--w:16;--h:9;">
+            <?= video(
+              $page->video_url(),
+              ['responsive' => true],
+              [
+                'loading' => 'lazy',
+                'allow' => 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture',
+                'class' => 'archive-video__iframe'
+              ]
+            ) ?>
+          </div>
+        </div>
+
+
+      <!-- MUSIC -->
+      <?php elseif ($page->format()->value() === 'music' && $page->music_url()->isNotEmpty()): ?>
+
+        <div class="archive-media archive-media--music">
+          <iframe
+            src="<?= $page->music_url()->url() ?>"
+            width="100%"
+            height="166"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+
+      <!-- EXTERNAL -->
+      <?php elseif ($page->format()->value() === 'external' && $page->external_url()->isNotEmpty()): ?>
+
+        <div class="archive-external">
+
+          <h2>
+            <a href="<?= $page->external_url() ?>" target="_blank" rel="noopener">
+              <?= $page->headline()->or($page->title())->esc() ?>
+            </a>
+          </h2>
+
+          <p>
+            <a
+              href="<?= $page->external_url() ?>"
+              target="_blank"
+              rel="noopener"
+            >
+              Visit external link →
+            </a>
+          </p>
+
+        </div>
+
+
+      <!-- STANDARD IMAGE GALLERY -->
+      <?php elseif ($gallery->isNotEmpty()): ?>
+
+        <?php $galleryColumns = ($gallery->count() === 1) ? 1 : 2; ?>
+        <ul class="album-gallery" style="columns: <?= $galleryColumns ?>;">
+
           <?php foreach ($gallery as $image): ?>
+
             <li>
               <a href="<?= $image->url() ?>" data-lightbox>
+
                 <figure
                   class="img"
                   style="--w:<?= $image->width() ?>;--h:<?= $image->height() ?>"
@@ -100,19 +194,20 @@
                     alt="<?= $image->alt()->esc() ?>"
                   >
                 </figure>
+
               </a>
             </li>
-          
-          <?php endforeach ?>
-        </ul>
 
-    
+          <?php endforeach ?>
+
+        </ul>
 
       <?php endif ?>
 
     </div>
 
   </div>
+
 
 </article>
 

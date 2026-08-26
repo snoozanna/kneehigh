@@ -69,6 +69,39 @@
 
     <!-- Right column -->
     <div class="column" style="--columns: 8">
+
+<!-- Quotes  -->
+ <?php if ($quotes->isNotEmpty()): ?>
+
+  <section class="person-quotes">
+
+    <h2><strong>Quotes</strong></h2>
+
+    <?php foreach ($quotes as $quote): ?>
+      
+
+      <figure class="archive-embed archive-embed--quote">
+
+        <blockquote><i>
+          <?= $quote->text()->toBlocks() ?>
+          </i>
+        </blockquote>
+
+        <figcaption>
+          <!-- <a href="<?= $quote->url() ?>">
+            <?= $quote->title()->esc() ?>
+          </a> -->
+        </figcaption>
+
+      </figure>
+<br/>
+    <?php endforeach ?>
+
+  </section>
+
+<?php endif ?>
+<br/>
+<!-- Archive Objects -->
 <h2><strong>Archive Objects</strong></h2>
   <?php if ($archiveObjects->isNotEmpty()): ?>
 

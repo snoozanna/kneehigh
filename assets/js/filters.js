@@ -1,9 +1,10 @@
 // filters.js
-document.querySelectorAll('[data-filter]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const cat = btn.dataset.filter;
-      document.querySelectorAll('.card').forEach(card => {
-        card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
-      });
+document.querySelectorAll("[data-filter]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const value = btn.dataset.filter;
+    document.querySelectorAll(".card").forEach((card) => {
+      card.style.display =
+        value === "all" || card.dataset.format === value ? "" : "none";
     });
   });
+});

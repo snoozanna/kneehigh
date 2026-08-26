@@ -29,6 +29,8 @@ columns:
   - width: 2/3
     # This columns only has a single field
     fields:
+      subheadline:
+        type: text
       text:
         type: blocks
         fieldsets:
@@ -40,8 +42,8 @@ columns:
           - gallery
           - video
           - line
-          - table 
-          - code 
+          - table
+          - code
           - archive-reference
 
   - width: 1/3
@@ -58,11 +60,11 @@ columns:
             label: Event Date
             type: date
             default: now
-            display: YYYY 
+            display: YYYY
           # Fields types can be added using the shortcut `fieldname: true`
           # (however, you can only use a fieldname once per page and this only makes sense for simple fields without configuration)
           tags: true
-          
+
       files:
         type: files
         template: blocks/image

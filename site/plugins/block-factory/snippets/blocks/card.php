@@ -36,9 +36,14 @@ $objects = $block->archiveObjects()->toPages();
                 </p>
             <?php endif ?>
 
-            <?php if ($object->category()->isNotEmpty()): ?>
-                <p class="category">
-                    <?= $object->category()->esc() ?>
+            <?php if ($object->format()->isNotEmpty()): ?>
+                <?php
+                    $options = $object->blueprint()->field('format')['options'] ?? [];
+                    $key = $object->format()->value();
+                    $label = $options[$key] ?? $key;
+                ?>
+                <p class="format">
+                    <?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?>
                 </p>
             <?php endif ?>
 

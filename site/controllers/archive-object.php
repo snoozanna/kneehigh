@@ -10,7 +10,7 @@
  */
 return function ($page) {
 
-    $gallery = $page->files()->sortBy('sort', 'filename');
+    $gallery = $page->images()->sortBy('sort', 'filename');
 
     return [
         'gallery' => $gallery

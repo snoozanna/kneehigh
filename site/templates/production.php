@@ -32,13 +32,50 @@
 <article class="note">
   <header class="note-header h1">
     <h1 class="note-title"><?= $page->title()->esc() ?></h1>
-    <?php if ($page->subheading()->isNotEmpty()): ?>
-    <p class="note-subheading"><small><?= $page->subheading()->esc() ?></small></p>
+    <?php if ($page->subheadline()->isNotEmpty()): ?>
+    <p class="note-subheading"><small><?= $page->subheadline()->esc() ?></small></p>
     <?php endif ?>
   </header>
   <div class="note text">
     <?= $page->text()->toBlocks() ?>
   </div>
+
+  <!-- Archive Objects -->
+<h2><strong>Archive Objects</strong></h2>
+  <?php if ($archiveObjects->isNotEmpty()): ?>
+
+        <ul class="album-gallery">
+        <?php foreach ($archiveObjects as $object): ?>
+
+<?php if ($cover = $object->cover()): ?>
+    <li>
+        <a href="<?= $object->url() ?>">
+            <figure
+                class="img"
+                style="--w:<?= $cover->width() ?>;--h:<?= $cover->height() ?>"
+            >
+                <img
+                    src="<?= $cover->resize(1200)->url() ?>"
+                    alt="<?= $cover->alt()->esc() ?>"
+                >
+            </figure>
+
+            
+
+            <h2><strong><?= $object->title()->esc() ?></strong></h2>
+        </a>
+    </li>
+<?php endif ?>
+
+<?php endforeach ?>
+
+        </ul>
+
+        <?php else: ?>
+
+<p>No archive objects found.</p>
+
+<?php endif ?>
   <footer class="note-footer">
     <?php if (!empty($tags)): ?>
     <ul class="note-tags">
@@ -53,7 +90,6 @@
     <!-- <time class="note-date" datetime="<?= $page->date()->toDate('c') ?>">Published on <?= $page->date()->esc() ?></time> -->
   </footer>
 
-  <?php snippet('prevnext') ?>
 </article>
 
 <?php snippet('footer') ?>

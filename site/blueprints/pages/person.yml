@@ -15,12 +15,12 @@ columns:
   - width: 2/3
     # This columns only has a single field
     fields:
-       cover: fields/cover
-       headline:
+      cover: fields/cover
+      headline:
         type: text
         placeholder: "{{ page.title }}"
         help: Leave empty to use the title as headline
-       text:
+      text:
         type: blocks
         # fieldsets:
         # - box
@@ -29,7 +29,6 @@ columns:
         # - faq
         # - faq2
         # - card
-      
 
   - width: 1/3
     # This second column holds a fields section with multiple fields
@@ -43,14 +42,25 @@ columns:
             type: checkboxes
             options:
               performer: Performer
+              musician: Musician
+              composer: Composer
+              producer: Producer
+              production-stage-management: Production Stage Management
+              writer: Writer
+              management-team: Management Team
+              artist: Artist
+              theatre-maker: Theatre Maker
+              designer: Designer
+              creator-of-the-rambles-project: Creator of the Rambles Project
               director: Director
-              creator: Creator
+              artistic-director: Artistic Director
+              lighting-designer: Lighting Designer
+              founder: Founder
               photographer: Photographer
               filmmaker: Filmmaker
-              composer: Composer
-              management: Management Team
-              artist: Artist
-              designer: Designer
+              puppet-designer: Puppet Designer
+              prop-designer: Prop Designer
+              choreographer: Choreographer
       files:
         type: files
         template: blocks/image

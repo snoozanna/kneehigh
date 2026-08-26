@@ -9,14 +9,14 @@ return function ($page) {
         ->sortBy('date', 'desc');
 
     // Active filters
-    $category   = get('category');
+    $category   = get('format');
     $production = get('production');
     $person     = get('person');
     $tag        = get('tag');
 
     // Category
     if ($category) {
-        $objects = $objects->filterBy('category', $category);
+        $objects = $objects->filterBy('format', $category);
     }
 
     // Production (Pages field)

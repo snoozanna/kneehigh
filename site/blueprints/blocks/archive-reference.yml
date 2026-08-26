@@ -13,6 +13,11 @@ fields:
     label: Display style
     type: select
     options:
-      card: Card (image + title + excerpt)
+      card: Card (image + title + metadata)
       inline: Inline link
+      quote: Quote
+      studio: In The Studio
+      video: Video
+      music: Music
+      external: External Link
     default: card

@@ -24,9 +24,11 @@ return function ($page) {
         $productions = $productions->filterBy('tags', $tag, ',');
     }
 
+   
+
     return [
         'tag'   => $tag,
-        'notes' => $productions->paginate(6)
+        'productions' => $productions->paginate(6)
     ];
 
 };

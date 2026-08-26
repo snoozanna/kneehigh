@@ -16,22 +16,26 @@ columns:
   - width: 2/3
     # This columns only has a single field
     fields:
-       headline:
+      description:
         type: text
         placeholder: "{{ page.title }}"
-        help: Leave empty to use the title as headline
-       subheadline:
+        help: Leave empty to use the title as description
+      subheadline:
         type: text
-       text:
+      text:
         type: blocks
-        # fieldsets:
-        # - box
-        # - heading
-        # - accordion
-        # - faq
-        # - faq2
-        # - card
-      
+        fieldsets:
+          - text
+          - heading
+          - quote
+          - list
+          - image
+          - gallery
+          - video
+          - line
+          - table
+          - code
+          - archive-reference
 
   - width: 1/3
     # This second column holds a fields section with multiple fields
@@ -44,35 +48,83 @@ columns:
             label: Date
             type: date
             default: now
-            display: YYYY 
-          category:
-            label: Category
+            display: YYYY
+
+          format:
+            label: Format
             type: select
+            required: true
             options:
               costume: Costume
               photograph: Photograph
+              trailer: Trailer
+              extendedTrailer: Extended Trailer
+              documentation: Full Show Documentation
+              film: Film
               programme: Programme
               prop: Prop
-           
+              quote: Quote
+              studio: In The Studio
+              music: Music
+              external: External Asset
+
+          video_url:
+            label: Video URL
+            type: url
+            placeholder: https://www.youtube.com/watch?v=...
+            help: If the object is a video, paste the YouTube or Vimeo URL.
+
+          music_url:
+            label: Music URL
+            type: url
+            placeholder: https://soundcloud.com/...
+            help: Paste the SoundCloud URL for this recording.
+            when:
+              format: music
+
+          external_url:
+            label: External URL
+            type: url
+            help: Link to the external review, article or resource.
+            when:
+              format: external
+
           production:
-            label: Production
+            label: Production(s)
             type: pages
-            max: 1
             query: site.find("productions").children
+            multiple: true
+
           tags:
             label: Tags
             type: tags
+
           is_featured:
             label: Feature this object on homepage?
-            type: toggle
-            text:
-            - "No"
-            - "Yes"
+            type: select
+            default: none
+            options:
+              none: No
+              background: Background
+              foreground: Foreground
+
+          photographer_credit:
+            label: Photographer Credit
+            type: text
+            placeholder: Photographer name
+            help: Enter the name of the photographer for this image.
+            when:
+              format: photograph
+
           people:
             label: People
             type: pages
             query: site.find("people").children.listed
             multiple: true
-      files:
-        type: files
-        template: blocks/image
+            help: Select the person or people associated with this archive object.
+          files:
+            type: files
+            multiple: true
+            template: blocks/image
+            image:
+              ratio: 1/1
