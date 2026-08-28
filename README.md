@@ -27,21 +27,21 @@ If you are familiar with Git, you can clone Kirby's Starterkit repository from G
 
 ## What's Kirby?
 
--   **[getkirby.com](https://getkirby.com)** – Get to know the CMS.
--   **[Try it](https://getkirby.com/try)** – Take a test ride with our online demo. Or download one of our kits to get started.
--   **[Documentation](https://getkirby.com/docs/guide)** – Read the official guide, reference and cookbook recipes.
--   **[Issues](https://github.com/getkirby/kirby/issues)** – Report bugs and other problems.
--   **[Feedback](https://feedback.getkirby.com)** – You have an idea for Kirby? Share it.
--   **[Forum](https://forum.getkirby.com)** – Whenever you get stuck, don't hesitate to reach out for questions and support.
--   **[Discord](https://chat.getkirby.com)** – Hang out and meet the community.
--   **[YouTube](https://youtube.com/kirbyCasts)** - Watch the latest video tutorials visually with Bastian.
--   **[Mastodon](https://mastodon.social/@getkirby)** – Spread the word.
--   **[Bluesky](https://bsky.app/profile/getkirby.com)** – Tell a friend.
+- **[getkirby.com](https://getkirby.com)** – Get to know the CMS.
+- **[Try it](https://getkirby.com/try)** – Take a test ride with our online demo. Or download one of our kits to get started.
+- **[Documentation](https://getkirby.com/docs/guide)** – Read the official guide, reference and cookbook recipes.
+- **[Issues](https://github.com/getkirby/kirby/issues)** – Report bugs and other problems.
+- **[Feedback](https://feedback.getkirby.com)** – You have an idea for Kirby? Share it.
+- **[Forum](https://forum.getkirby.com)** – Whenever you get stuck, don't hesitate to reach out for questions and support.
+- **[Discord](https://chat.getkirby.com)** – Hang out and meet the community.
+- **[YouTube](https://youtube.com/kirbyCasts)** - Watch the latest video tutorials visually with Bastian.
+- **[Mastodon](https://mastodon.social/@getkirby)** – Spread the word.
+- **[Bluesky](https://bsky.app/profile/getkirby.com)** – Tell a friend.
+
 ---
 
 © 2009 Bastian Allgeier
 [getkirby.com](https://getkirby.com) · [License agreement](https://getkirby.com/license)
-
 
 ### power up
 
@@ -50,3 +50,16 @@ composer start
 
 vite
 npm run dev
+
+## Synchronize your contents
+
+As mentioned above, deployment of your code base (templates and configuration) and dependencies (Kirby and Composer) is done via Git deployment. Deploying the content is a separate step. We recommend to use rsync to upload or download new contents to and from your remote fortrabbit App (see also our rsync article). On your local computer in the Terminal in the kirby project folder execute:
+
+# SYNC UP: from local to remote
+
+rsync -av ./content {{app-name}}@deploy.{{region}}.frbit.com:~
+It works also the other way around. For example in a case, where you have done some edits online and want those changes to be reflected in your local development environment:
+
+# SYNC DOWN: from remote to local
+
+rsync -av {{app-name}}@deploy.{{region}}.frbit.com:~/content ./
