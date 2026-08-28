@@ -1,3 +1,13 @@
+# Kirby itself
+/kirby
+
+# Composer dependencies
+/vendor
+
+# Stuff you are creating
+/content
+
+
 # System files
 # ------------
 
