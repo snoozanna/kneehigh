@@ -48,6 +48,15 @@
     "src": "assets/css/templates/album.css",
     "isEntry": true
   },
+  "assets/css/templates/archive.css": {
+    "file": "assets/archive-CD4hPmx0.css",
+    "name": "archive",
+    "names": [
+      "archive.css"
+    ],
+    "src": "assets/css/templates/archive.css",
+    "isEntry": true
+  },
   "assets/css/templates/home.css": {
     "file": "assets/home-CAMHe7OS.css",
     "name": "home",

@@ -409,14 +409,6 @@ $featuredInput = strtolower(
 
     /*
     |--------------------------------------------------------------------------
-    | Slug
-    |--------------------------------------------------------------------------
-    */
-
-    $slug = Str::slug($title);
-
-    /*
-    |--------------------------------------------------------------------------
     | Category
     |--------------------------------------------------------------------------
     */
@@ -443,6 +435,28 @@ $featuredInput = strtolower(
         $category =
             $categoryMap[$formatInput];
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Slug
+    |--------------------------------------------------------------------------
+    |
+    | Use the URL slug as [format]-[object_number], while keeping the page
+    | title as the human-readable title field.
+    |--------------------------------------------------------------------------
+    */
+
+    $slugSource = trim(
+        (($category !== null)
+            ? $category
+            : ($formatInput !== ''
+                ? $formatInput
+                : 'item')) .
+        '-' .
+        $objectNumber
+    );
+
+    $slug = Str::slug($slugSource);
 
     /*
     |--------------------------------------------------------------------------
@@ -806,7 +820,7 @@ $featuredInput = strtolower(
               // 'isDraft'  => true,
               
               //Create as "in review"
-              'isDraft' => false,
+            //   'isDraft' => false,
 
               // Create as a published/listed page
          

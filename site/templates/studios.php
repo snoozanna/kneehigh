@@ -43,7 +43,7 @@
 
       </header>
 
-      <div class="note-excerpt-text"">
+      <div class="note text">
         <?= $studio->text()->toBlocks() ?>
       </div>
 

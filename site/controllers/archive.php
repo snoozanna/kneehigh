@@ -1,62 +1,71 @@
 <?php
 
 return function ($page) {
-
-    // Base collection
-    $objects = $page
+    $allObjects = $page
         ->children()
         ->listed()
         ->sortBy('date', 'desc');
 
-    // Active filters
-    $category   = get('format');
+    $format = get('format');
     $production = get('production');
-    $person     = get('person');
-    $tag        = get('tag');
+    $year = get('year');
 
-    // Category
-    if ($category) {
-        $objects = $objects->filterBy('format', $category);
+    if ($format) {
+        $allObjects = $allObjects->filterBy('format', $format);
     }
 
-    // Production (Pages field)
     if ($production) {
-        $objects = $objects->filter(function ($item) use ($production) {
-            return $item->production()->toPage()?->slug() === $production;
+        $allObjects = $allObjects->filter(function ($item) use ($production) {
+            return in_array($production, $item->production()->toPages()->pluck('slug'), true);
         });
     }
 
-    // People (Pages field, multiple)
-    if ($person) {
-        $objects = $objects->filter(function ($item) use ($person) {
-            return in_array(
-                $person,
-                $item->people()->toPages()->pluck('slug')
-            );
+    if ($year) {
+        $allObjects = $allObjects->filter(function ($item) use ($year) {
+            if (!$item->date()->isNotEmpty()) {
+                return false;
+            }
+
+            return (string) $item->date()->toDate('Y') === (string) $year;
         });
     }
 
-    // Tags
-    if ($tag) {
-        $objects = $objects->filterBy('tags', $tag, ',');
+    $objects = $allObjects->paginate(24);
+
+    $formatOptions = [];
+    foreach ($page->children()->listed() as $object) {
+        $value = $object->format()->value();
+        if ($value === '') {
+            continue;
+        }
+
+        $options = $object->blueprint()->field('format')['options'] ?? [];
+        $formatOptions[$value] = $options[$value] ?? ucfirst((string) $value);
     }
 
-    // Pagination
-    $objects = $objects->paginate(24);
+    $years = [];
+    foreach ($page->children()->listed() as $item) {
+        if (!$item->date()->isNotEmpty()) {
+            continue;
+        }
+
+        $year = (string) $item->date()->toDate('Y');
+        if ($year !== '') {
+            $years[$year] = true;
+        }
+    }
+
+    $years = array_keys($years);
+    rsort($years, SORT_NUMERIC);
 
     return [
         'objects' => $objects,
         'pagination' => $objects->pagination(),
-
-        // Filter data
+        'formats' => $formatOptions,
         'productions' => site()->find('productions')->children()->listed(),
-        'people' => site()->find('people')->children()->listed(),
-        'tags' => $page->children()->listed()->pluck('tags', ',', true),
-
-        // Current filter values
-        'currentCategory' => $category,
+        'years' => $years,
+        'currentFormat' => $format,
         'currentProduction' => $production,
-        'currentPerson' => $person,
-        'currentTag' => $tag,
+        'currentYear' => $year,
     ];
 };

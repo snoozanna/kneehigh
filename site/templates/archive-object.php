@@ -27,14 +27,9 @@
 
 <header class="h1">
   <h1 class="img-caption">
-   <?php
-      $options = $page->blueprint()->field('format')['options'] ?? [];
-      $key = $page->format()->value();
-        $label = $options[$key] ?? $key;
-      ?>
-     <span class="img-caption__format"><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?></span>
+         <span class="img-caption__format"><?= $page->title()->esc() ?></span>
     <span><?= $page->description()->esc() ?></span>
-
+</h1>
 </header>
 
   <div class="grid">
@@ -99,7 +94,7 @@
 <?php endif ?>
         </div>
             <br/>
-      <?php if ($page->format()->value() !== 'quote'): ?>
+      <?php if ($page->format()->value() !== 'quote' && $page->format()->value() !== 'studio'): ?>
         <?= $page->text()->toBlocks() ?>
      <?php endif ?>    
       </div>
@@ -109,13 +104,21 @@
    <!-- Right column -->
     <?php $columnSpan = 8 ?>
     <div class="column" style="--columns: <?= $columnSpan ?>">
-
+<!-- QUOTE  -->
      <?php if ($page->format()->value() === 'quote'): ?>
         <div class="archive-quote">
+           <div class="note text">
           <blockquote>
             <?= $page->text()->toBlocks() ?>
           </blockquote>
+          </div>
         </div>
+      <?php endif ?>       
+<!-- STUDIO  -->
+  <?php if ($page->format()->value() === 'studio'): ?>
+     <div class="note text">
+    <?= $page->text()->toBlocks() ?>
+     </div>
       <?php endif ?>       
       <!-- VIDEO -->
       <?php if ($page->video_url()->isNotEmpty()): ?>

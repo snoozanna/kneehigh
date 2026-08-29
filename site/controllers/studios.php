@@ -21,7 +21,7 @@ return function ($page) {
 
     return [
         'tag'     => $tag,
-        'studios' => $studios->paginate(6)
+        'studios' => $studios->paginate(10)
     ];
 
 };

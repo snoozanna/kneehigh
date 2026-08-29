@@ -1,9 +1,51 @@
 <?php snippet('header') ?>
 <?php snippet('intro') ?>
 
+<form class="archive-filters" method="get">
+  <label>
+    <span>Format</span>
+    <select name="format" onchange="this.form.submit()">
+      <option value="">All formats</option>
+      <?php foreach ($formats as $value => $label): ?>
+        <option value="<?= $value ?>" <?= ($currentFormat ?? '') === $value ? 'selected' : '' ?>>
+          <?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?>
+        </option>
+      <?php endforeach ?>
+    </select>
+  </label>
+
+  <label>
+    <span>Production</span>
+    <select name="production" onchange="this.form.submit()">
+      <option value="">All productions</option>
+      <?php foreach ($productions as $productionPage): ?>
+        <option value="<?= $productionPage->slug() ?>" <?= ($currentProduction ?? '') === $productionPage->slug() ? 'selected' : '' ?>>
+          <?= htmlspecialchars($productionPage->title()->value(), ENT_QUOTES, 'UTF-8') ?>
+        </option>
+      <?php endforeach ?>
+    </select>
+  </label>
+
+  <label>
+    <span>Year</span>
+    <select name="year" onchange="this.form.submit()">
+      <option value="">All years</option>
+      <?php foreach ($years as $year): ?>
+        <option value="<?= $year ?>" <?= ($currentYear ?? '') === (string) $year ? 'selected' : '' ?>>
+          <?= $year ?>
+        </option>
+      <?php endforeach ?>
+    </select>
+  </label>
+
+  <?php if (($currentFormat ?? '') || ($currentProduction ?? '') || ($currentYear ?? '')): ?>
+    <a href="<?= $page->url() ?>">Clear filters</a>
+  <?php endif ?>
+</form>
+
 <ul class="grid" style="--gutter: 1.5rem">
 
-  <?php foreach ($page->children()->listed() as $object): ?>
+  <?php foreach ($objects as $object): ?>
     <li class="column" style="--columns: 3">
 
       <a href="<?= $object->url() ?>">
