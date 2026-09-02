@@ -9,7 +9,7 @@
   To fetch the content from each field we call the field name as a
   method on the `$page` object, e.g. `$page->title()`.
 
-  This template lists all all the subpages of the `phototography`
+  This template lists all all the subpages of the `productions`
   page with title and cover image.
 
   Snippets like the header and footer contain markup used in

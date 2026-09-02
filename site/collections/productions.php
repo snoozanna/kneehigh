@@ -10,5 +10,5 @@ return function () {
     return page('productions')
         ->children()
         ->listed()
-        ->sortBy('date', 'desc');
+        ->sortBy('date', 'asc');
 };

@@ -25,21 +25,22 @@
 
   <?php foreach ($studios as $studio): ?>
 
-    <article class="note-excerpt">
+    <article class="note-excerpt studio">
 
       <header class="studio__header">
 
         <h2 class="note-excerpt-title h2">
           <a href="<?= $studio->url() ?>">
-            <?= $studio->headline()->or($studio->title())->esc() ?>
+            <?= $studio->headline()->or($studio->title())->esc() ?>:   <?= $studio->description()->esc() ?>
           </a>
         </h2>
+        <h2 class="note-excerpt-title h3">
+        
+          
 
-        <?php if ($studio->date()->isNotEmpty()): ?>
-          <p class="note-excerpt-date">
-            <?= $studio->date()->toDate('Y') ?>
-          </p>
-        <?php endif ?>
+        </h2>
+
+      
 
       </header>
 

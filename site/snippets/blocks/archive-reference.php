@@ -13,21 +13,47 @@
 
         <?php foreach ($items as $target): ?>
 
-          <?php $image = $target->files()->template('blocks/image')->first(); ?>
+          <?php
+            $images = $target->files()->filterBy('type', 'image');
+            $firstImage = $images->first();
+            $imageCount = $images->count();
+          ?>
 
-          <li>
+          <li class="archive-card">
             <a href="<?= $target->url() ?>">
 
-              <?php if ($image): ?>
+              <?php if ($imageCount === 1 && $firstImage): ?>
 
                 <figure
-                  class="img"
-                  style="--w:<?= $image->width() ?>;--h:<?= $image->height() ?>"
+                  class="img img--single"
+                  style="--w:<?= $firstImage->width() ?>;--h:<?= $firstImage->height() ?>"
                 >
                   <img
-                    src="<?= $image->resize(1200)->url() ?>"
-                    alt="<?= $image->alt()->esc() ?>"
+                    src="<?= $firstImage->resize(2000)->url() ?>"
+                    alt="<?= $firstImage->alt()->esc() ?>"
                   >
+                </figure>
+
+              <?php elseif ($imageCount > 1): ?>
+
+                <div class="img img--gallery">
+                  <?php foreach ($images->limit(4) as $img): ?>
+                    <figure
+                      class="img__thumb"
+                      style="--w:<?= $img->width() ?>;--h:<?= $img->height() ?>"
+                    >
+                      <img
+                        src="<?= $img->resize(800)->url() ?>"
+                        alt="<?= $img->alt()->esc() ?>"
+                      >
+                    </figure>
+                  <?php endforeach ?>
+                </div>
+
+              <?php elseif ($firstImage): ?>
+
+                <figure class="img">
+                  <img src="<?= $firstImage->resize(1200)->url() ?>" alt="<?= $firstImage->alt()->esc() ?>">
                 </figure>
 
               <?php endif ?>
@@ -35,14 +61,29 @@
               <figcaption>
 
                 <span class="archive-embed__title">
-                  <?= $target->headline()->or($target->title()) ?>
+                  <?= $target->description()->or($target->title()) ?>
+                </span>
+                <span class="archive-embed__meta">
+                 
+                  <?= $target->date()->toDate('Y') ?>
+                  <?php
+                    $credit = '';
+                    if ($firstImage && $firstImage->credit()->isNotEmpty()) {
+                      $credit = $firstImage->credit()->esc();
+                    } elseif ($target->photographer()->isNotEmpty()) {
+                      $credit = $target->photographer()->esc();
+                    }
+                    if ($credit) {
+                      echo ' · ' . $credit;
+                    }
+                  ?>
                 </span>
 
-                <span class="archive-embed__meta">
-                  <?= $target->format()->value() ?>
-                  ·
-                  <?= $target->date()->toDate('Y') ?>
-                </span>
+                <?php if ($firstImage && $firstImage->caption()->isNotEmpty()): ?>
+                  <p class="archive-embed__desc"><?= $firstImage->caption()->esc() ?></p>
+                <?php elseif ($target->text()->isNotEmpty()): ?>
+                  <p class="archive-embed__desc"><?= $target->text()->excerpt(120) ?></p>
+                <?php endif ?>
 
               </figcaption>
 
@@ -59,13 +100,13 @@
 
       <?php foreach ($items as $target): ?>
 
-        <figure class="archive-embed archive-embed--quote">
+        <blockquote>
 
           <?= $target->text()->toBlocks() ?>
 
           <?php if ($target->people()->isNotEmpty()): ?>
 
-            <figcaption>
+            <footer>
 
               <?php
                 $peopleLinks = [];
@@ -75,11 +116,11 @@
                 echo implode(', ', $peopleLinks);
               ?>
 
-            </figcaption>
+            </footer>
 
           <?php endif ?>
 
-        </figure>
+        </blockquote>
 
       <?php endforeach ?>
 
@@ -89,17 +130,13 @@
 
       <?php foreach ($items as $target): ?>
 
-        <div class="archive-embed archive-embed--studio">
+        <div class="note-excerpt studio">
 
-          <h2>In The Studio</h2>
+          <h2>  <?= $target->title ()->esc() ?>: <?= $target->description ()->esc() ?></h2>
+         
 
           <?= $target->text()->toBlocks() ?>
 
-          <p>
-            <a href="<?= $target->url() ?>">
-              Read more →
-            </a>
-          </p>
 
         </div>
 

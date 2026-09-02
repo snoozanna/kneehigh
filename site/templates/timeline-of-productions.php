@@ -9,8 +9,8 @@
   To fetch the content from each field we call the field name as a
   method on the `$page` object, e.g. `$page->title()`.
 
-  This default template must not be removed. It is used whenever Kirby
-  cannot find a template with the name of the content file.
+  This template lists all all the subpages of the `productions`
+  page with title and cover image.
 
   Snippets like the header and footer contain markup used in
   multiple templates. They also help to keep templates clean.
@@ -21,8 +21,19 @@
 <?php snippet('header') ?>
 <?php snippet('intro') ?>
 
-<?php snippet('layouts', ['field' => $page->layout()])  ?>
-
+<ul class="text>
+  <?php foreach ($productions as $production): ?>
+    <li>
+      <a href="<?= $production->url() ?>">
+          <time datetime="<?= $production->date()->toDate('c') ?>">
+        <?= $production->date()->toDate('Y') ?>
+      </time>
+        <?= $production->title()->esc() ?>
+      </a>
+    
+    </li>
+  <?php endforeach ?>
+</ul>
 <?php snippet('choice-navigation') ?>
 
 <?php snippet('footer') ?>

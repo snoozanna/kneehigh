@@ -32,14 +32,34 @@ sections:
           - "1/3, 1/3, 1/3"
       text:
         type: blocks
-  
 
-  # The photography section extends a pages section defined in the `/site/blueprints/section/album.yml` blueprint
-  # More about reusing and extending sections: https://getkirby.com/docs/guide/blueprints/extending-blueprints#reusing-and-extending-sectionss
-
-  archive-object:
-    label: Featured Archive Objects
-    extends: sections/archive-objects
-    query: kirby.page("archive").children.listed.filterBy("is_featured", true)
-    help: Only featured archive objects are shown.
-
+  archive-object-bg:
+    label: Featured Archive Objects - Background
+    type: pages
+    query: kirby.page("archive").children.listed.filterBy("is_featured", "background")
+    parent: kirby.page("archive")
+    multiple: true
+    layout: cards
+    search: true
+    text: "{{ page.description.or(page.title) }}"
+    info: "{{ page.slug }}"
+    image:
+      query: page.cover
+      cover: true
+      ratio: 3/2
+    create: false
+  archive-object-fg:
+    label: Featured Archive Objects - Foreground
+    type: pages
+    query: kirby.page("archive").children.listed.filterBy("is_featured", "foreground")
+    parent: kirby.page("archive")
+    multiple: true
+    layout: cards
+    search: true
+    text: "{{ page.description.or(page.title) }}"
+    info: "{{ page.slug }}"
+    image:
+      query: page.cover
+      cover: true
+      ratio: 3/2
+    create: false

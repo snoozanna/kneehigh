@@ -4,7 +4,7 @@
     "name": "rolldown-runtime"
   },
   "assets/css/index.css": {
-    "file": "assets/index-D_FaTXZ9.css",
+    "file": "assets/index-DoeKDol6.css",
     "name": "index",
     "names": [
       "index.css"
@@ -58,7 +58,7 @@
     "isEntry": true
   },
   "assets/css/templates/home.css": {
-    "file": "assets/home-CAMHe7OS.css",
+    "file": "assets/home-DpBHgCE4.css",
     "name": "home",
     "names": [
       "home.css"
@@ -75,8 +75,17 @@
     "src": "assets/css/templates/note.css",
     "isEntry": true
   },
+  "assets/css/templates/pre-flight.css": {
+    "file": "assets/pre-flight-DUAKbA-c.css",
+    "name": "pre-flight",
+    "names": [
+      "pre-flight.css"
+    ],
+    "src": "assets/css/templates/pre-flight.css",
+    "isEntry": true
+  },
   "assets/js/index.js": {
-    "file": "assets/index-GkplBXbL.js",
+    "file": "assets/index-CDKCZZNG.js",
     "name": "index",
     "src": "assets/js/index.js",
     "isEntry": true

@@ -1,0 +1,28 @@
+title: Alumni, Conspirators & Collaborators
+icon: 👥
+
+status:
+  draft:
+    label: Draft
+    text: This page is still in draft mode.
+  unlisted:
+    label: Hidden
+    text: This page is not listed.
+  listed:
+    label: Published
+    text: This page is published.
+
+columns:
+  main:
+    width: 1
+    sections:
+      intro:
+        type: fields
+        fields:
+          is_featured_on_choice:
+            label: Include this page on the Choice page?
+            type: toggle
+            default: false
+            text:
+              - "No"
+              - "Yes"

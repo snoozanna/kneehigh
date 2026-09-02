@@ -83,7 +83,7 @@
       <figure class="archive-embed archive-embed--quote">
 
         <blockquote><i>
-          <?= $quote->text()->toBlocks() ?>
+          "<?= $quote->text()->toBlocks() ?>"
           </i>
         </blockquote>
 
@@ -123,7 +123,7 @@
 
             
 
-            <h2><strong><?= $object->title()->esc() ?></strong></h2>
+            <h2><strong><?= $object->description()->esc() ?></strong></h2>
         </a>
     </li>
 <?php endif ?>

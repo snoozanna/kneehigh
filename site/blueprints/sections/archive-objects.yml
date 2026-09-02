@@ -6,7 +6,9 @@ type: pages
 label: Archive Objects
 parent: kirby.page("archive")
 size: small
-info: "{{ page.images.count }} image(s)"
+layout: cards
+text: "{{ page.description.or(page.title) }}"
+info: "{{ page.slug }}"
 template: archive-object
 empty: No archive objects yet
 image:

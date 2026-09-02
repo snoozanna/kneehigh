@@ -8,6 +8,8 @@ fields:
     type: pages
     multiple: true
     query: site.index.filterBy("intendedTemplate", "archive-object")
+    text: "{{ page.description.or(page.title) }}"
+    info: "{{ page.slug }}"
     help: Select one or more archive objects to embed inline
   display:
     label: Display style

@@ -26,6 +26,15 @@ columns:
       fields:
         type: fields
         fields:
+          subheadline:
+            type: text
+          is_featured_on_choice:
+            label: Include this page on the Choice page?
+            type: toggle
+            default: false
+            text:
+              - "No"
+              - "Yes"
           layout:
             label: Layout
             type: layout
