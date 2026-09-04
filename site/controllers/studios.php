@@ -19,9 +19,12 @@ return function ($page) {
         $studios = $studios->filterBy('tags', $tag, ',');
     }
 
+    $studios = $studios->paginate(10);
+
     return [
-        'tag'     => $tag,
-        'studios' => $studios->paginate(10)
+        'tag' => $tag,
+        'studios' => $studios,
+        'pagination' => $studios->pagination(),
     ];
 
 };

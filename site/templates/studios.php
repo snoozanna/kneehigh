@@ -53,5 +53,5 @@
   <?php endforeach ?>
 
 </div>
-
+<?php snippet('pagination', ['pagination' => $pagination]) ?>
 <?php snippet('footer') ?>

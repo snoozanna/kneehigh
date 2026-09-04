@@ -13,11 +13,11 @@ return [
     'panel' =>[
     // 'install' => true
   ],
-  'cache' => [
-    'pages' => [
-      'active' => true,
-      'ignore' => fn ($page) => $page->title()->value() === 'Do not cache me'
-    ]
-  ]
+  // 'cache' => [
+  //   'pages' => [
+  //     'active' => true,
+  //     'ignore' => fn ($page) => $page->title()->value() === 'Do not cache me'
+  //   ]
+  // ]
 
 ];

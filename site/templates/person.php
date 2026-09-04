@@ -23,26 +23,10 @@
 ?>
 <?php snippet('header') ?>
 
-<article>
+<article class="text">
 
-  <?php snippet('intro') ?>
-  <div class="grid">
-
-    <!-- Left column -->
-    <div class="column" style="--columns: 4">
-    <?php if ($cover = $page->cover()): ?>
-<a href="<?= $cover->url() ?>" data-lightbox class="img" style="--w:2; --h:1">
-  <img src="<?= $cover->crop(1200, 600)->url() ?>" alt="<?= $cover->alt()->esc() ?>">
-</a>
-<?php endif ?>
-<br/>
-      <div class="text">
-
-        <?php if ($page->subheading()->isNotEmpty()): ?>
-          <h2><?= $page->subheading()->esc() ?></h2>
-        <?php endif ?>
-
-        <div class="archive-meta">
+ <header class="h1">
+  <h1><?= $page->headline()->or($page->title())->esc() ?></h1>
         <?php if ($page->roles()->isNotEmpty()): ?>
 
       <?php
@@ -53,12 +37,22 @@
       }, $page->roles()->split());
       ?>
 
-      <p>
-          <strong><?= implode(', ', $roles) ?></strong>
+      <p class="color-grey">
+       <?= implode(', ', $roles) ?>
       </p>
-
 <?php endif ?>
-        </div>
+</header>
+  <div class="grid">
+
+    <!-- Left column -->
+    <div class="column" style="--columns: 4">
+    <?php if ($cover = $page->cover()): ?>
+<a href="<?= $cover->url() ?>" data-lightbox class="img" style="--w:2; --h:1">
+  <img src="<?= $cover->crop(1200, 600)->url() ?>" alt="<?= $cover->alt()->esc() ?>">
+</a>
+<?php endif ?>
+<br/>
+      <div class="text"> 
         
 <br/>
         <?= $page->text()->toBlocks() ?>
@@ -79,21 +73,12 @@
 
     <?php foreach ($quotes as $quote): ?>
       
-
-      <figure class="archive-embed archive-embed--quote">
-
-        <blockquote><i>
+        <blockquote>
           "<?= $quote->text()->toBlocks() ?>"
-          </i>
         </blockquote>
 
-        <figcaption>
-          <!-- <a href="<?= $quote->url() ?>">
-            <?= $quote->title()->esc() ?>
-          </a> -->
-        </figcaption>
 
-      </figure>
+
 <br/>
     <?php endforeach ?>
 
@@ -102,8 +87,9 @@
 <?php endif ?>
 <br/>
 <!-- Archive Objects -->
-<h2><strong>Archive Objects</strong></h2>
   <?php if ($archiveObjects->isNotEmpty()): ?>
+<h2><strong>Archive Objects</strong></h2>
+ 
 
         <ul class="album-gallery">
         <?php foreach ($archiveObjects as $object): ?>
@@ -134,7 +120,6 @@
 
         <?php else: ?>
 
-<p>No archive objects found.</p>
 
 <?php endif ?>
 

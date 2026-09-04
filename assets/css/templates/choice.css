@@ -1,0 +1,141 @@
+/* Minimal, sleek choice grid styles */
+.choice-list {
+  margin-top: 1.25rem;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.choice-item {
+  position: relative;
+}
+
+.choice-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 160px;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.choice-item a:hover,
+.choice-item a:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+}
+
+.choice-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.choice-title {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: #111;
+}
+
+.choice-badge {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: #111;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Make the grid a bit denser on larger screens */
+@media (min-width: 900px) {
+  .choice-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Slightly larger titles on wider screens */
+@media (min-width: 720px) {
+  .choice-title {
+    font-size: 1.05rem;
+  }
+}
+
+/* Toggle control */
+.choice-mode-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.choice-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.choice-toggle input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.choice-toggle-switch {
+  width: 44px;
+  height: 24px;
+  background: #e9e9eb;
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.18s ease;
+}
+
+.choice-toggle-switch:after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.18s ease;
+}
+
+.choice-toggle input[type="checkbox"]:checked + .choice-toggle-switch {
+  background: #111;
+}
+
+.choice-toggle input[type="checkbox"]:checked + .choice-toggle-switch:after {
+  transform: translateX(20px);
+}
+
+.choice-toggle-text {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}

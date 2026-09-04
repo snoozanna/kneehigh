@@ -75,7 +75,7 @@
           <?php $i++; endforeach ?>
         </div>
 
-        <button id="hero-randomize" class="hero-randomize">Randomize</button>
+        <button id="hero-randomize" class="hero-randomize">Change pictures</button>
       </div>
     </section>
 
