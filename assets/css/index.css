@@ -56,6 +56,60 @@ button {
   color: currentColor;
   cursor: pointer;
 }
+
+/* Site-wide square button styles (inlined from templates/choice-buttons.css)
+   Matches the archive filters visual language: square edges, clear border.
+*/
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.9rem;
+  background: var(--color-white);
+  color: var(--color-black);
+  text-decoration: none;
+  border-radius: 0;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--color-black);
+  transition:
+    background 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.btn:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn:focus {
+  outline: 1px solid var(--color-black);
+  outline-offset: 2px;
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
+}
+
+.choice-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0;
+}
+
+.choice-next {
+  margin: 0;
+}
+
+.choice-btn {
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
+}
 strong,
 b {
   font-weight: 600;

@@ -5,11 +5,10 @@
 type: pages
 label: Archive Objects
 parent: kirby.page("archive")
-size: small
-layout: cards
 text: "{{ page.description.or(page.title) }}"
 info: "{{ page.slug }}"
 template: archive-object
+search: true
 empty: No archive objects yet
 image:
   query: page.cover

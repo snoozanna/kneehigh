@@ -27,14 +27,27 @@ $currentPosition = array_search($page->id(), array_map(fn ($item) => $item->id()
 if ($currentPosition !== false && isset($orderedPages[$currentPosition + 1])) {
   $nextChoicePage = $orderedPages[$currentPosition + 1];
 }
+
+$prevChoicePage = null;
+if ($currentPosition !== false && $currentPosition > 0 && isset($orderedPages[$currentPosition - 1])) {
+  $prevChoicePage = $orderedPages[$currentPosition - 1];
+}
 ?>
 
-<?php if ($choiceMode === 'guided' && $nextChoicePage): ?>
-  <p class="choice-next">
-    <a href="<?= $nextChoicePage->url() ?>">Next</a>
+<?php if ($choiceMode === 'guided' && ($prevChoicePage || $nextChoicePage)): ?>
+  <p class="choice-nav">
+    <?php if ($prevChoicePage): ?>
+      <a class="btn choice-btn choice-back" href="<?= $prevChoicePage->url() ?>">Back</a>
+    <?php else: ?>
+      <a class="btn choice-btn choice-back btn--secondary" href="<?= $choicePage->url() ?>">Back to choice</a>
+    <?php endif ?>
+
+    <?php if ($nextChoicePage): ?>
+      <a class="btn choice-btn choice-next" href="<?= $nextChoicePage->url() ?>">Next</a>
+    <?php endif ?>
   </p>
 <?php elseif ($choiceMode === 'free'): ?>
   <p class="choice-next">
-    <a href="<?= $choicePage->url() ?>">Back to choice page</a>
+    <a class="btn choice-btn" href="<?= $choicePage->url() ?>">Back to choice page</a>
   </p>
 <?php endif ?>

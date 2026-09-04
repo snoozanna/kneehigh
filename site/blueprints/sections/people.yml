@@ -9,6 +9,7 @@ size: small
 info: "{{ page.images.count }} image(s)"
 template: person
 empty: No people yet
+search: true
 image:
   query: page.cover
   cover: true

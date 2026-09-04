@@ -2,10 +2,10 @@
 # Each page blueprint must have a title, the title may be different from the file name
 title: Productions
 options:
-  template: production   # children are created using this template by default
+  template: production # children are created using this template by default
 
 # Each page can have an icon that is shown in page listings when no preview image is available.
-icon: 📖
+icon: 🎭
 
 # Define the form layout with two columns
 # More about columns: https://getkirby.com/docs/guide/blueprints/layout#defining-columns

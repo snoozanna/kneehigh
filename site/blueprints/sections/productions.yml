@@ -5,10 +5,10 @@
 type: pages
 label: Productions
 parent: kirby.page("productions")
-info: "{{ page.published }}"
 template: production
 empty: No productions yet
-sortBy: date desc
+sortBy: name asc
+search: true
 image:
   query: page.cover
   cover: true
