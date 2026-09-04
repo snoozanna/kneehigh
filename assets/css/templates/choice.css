@@ -59,13 +59,12 @@
   position: absolute;
   left: 10px;
   top: 10px;
-  background: #111;
+  background: var(--color-grey);
   color: #fff;
   width: 28px;
   height: 28px;
   display: inline-grid;
   place-items: center;
-  border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 700;
 }
