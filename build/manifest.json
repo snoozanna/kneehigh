@@ -48,6 +48,15 @@
     "src": "assets/css/templates/album.css",
     "isEntry": true
   },
+  "assets/css/templates/archive-object.css": {
+    "file": "assets/archive-object-x1XGuNl0.css",
+    "name": "archive-object",
+    "names": [
+      "archive-object.css"
+    ],
+    "src": "assets/css/templates/archive-object.css",
+    "isEntry": true
+  },
   "assets/css/templates/archive.css": {
     "file": "assets/archive-CD4hPmx0.css",
     "name": "archive",
@@ -55,6 +64,15 @@
       "archive.css"
     ],
     "src": "assets/css/templates/archive.css",
+    "isEntry": true
+  },
+  "assets/css/templates/choice.css": {
+    "file": "assets/choice-mEKGw94t.css",
+    "name": "choice",
+    "names": [
+      "choice.css"
+    ],
+    "src": "assets/css/templates/choice.css",
     "isEntry": true
   },
   "assets/css/templates/home.css": {
@@ -68,9 +86,10 @@
   },
   "assets/css/templates/note.css": {
     "file": "assets/note-O1nlwGa0.css",
-    "name": "note",
+    "name": "production",
     "names": [
-      "note.css"
+      "note.css",
+      "production.css"
     ],
     "src": "assets/css/templates/note.css",
     "isEntry": true
@@ -82,6 +101,16 @@
       "pre-flight.css"
     ],
     "src": "assets/css/templates/pre-flight.css",
+    "isEntry": true
+  },
+  "assets/css/templates/production.css": {
+    "file": "assets/note-O1nlwGa0.css",
+    "name": "production",
+    "names": [
+      "note.css",
+      "production.css"
+    ],
+    "src": "assets/css/templates/note.css",
     "isEntry": true
   },
   "assets/js/index.js": {
