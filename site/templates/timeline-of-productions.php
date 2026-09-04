@@ -21,7 +21,7 @@
 <?php snippet('header') ?>
 <?php snippet('intro') ?>
 
-<ul class="text>
+<ul class="text">
   <?php foreach ($productions as $production): ?>
     <li>
       <a href="<?= $production->url() ?>">
@@ -34,6 +34,7 @@
     </li>
   <?php endforeach ?>
 </ul>
+<br/><br/>
 <?php snippet('choice-navigation') ?>
 
 <?php snippet('footer') ?>

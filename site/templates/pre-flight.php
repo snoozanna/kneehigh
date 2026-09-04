@@ -15,8 +15,11 @@
   }
 
   $selectedQuotes = [];
+  $seenQuoteKeys = [];
+
   foreach ($quoteObjects as $quoteObject) {
     $text = $quoteObject->text()->toBlocks()->excerpt(250);
+    $textValue = trim(strip_tags($text));
     $author = '';
 
     if ($quoteObject->people()->isNotEmpty()) {
@@ -27,10 +30,15 @@
       $author = implode(', ', $names);
     }
 
-    $selectedQuotes[] = [
-      'text' => strip_tags($text),
-      'author' => $author,
-    ];
+    $quoteKey = strtolower($textValue) . '|' . strtolower(trim($author));
+
+    if ($quoteKey !== '|' && !isset($seenQuoteKeys[$quoteKey])) {
+      $seenQuoteKeys[$quoteKey] = true;
+      $selectedQuotes[] = [
+        'text' => $textValue,
+        'author' => $author,
+      ];
+    }
   }
 
   if (count($selectedQuotes) < 5) {
@@ -47,20 +55,16 @@
         break;
       }
 
-      $alreadyExists = false;
-      foreach ($selectedQuotes as $selectedQuote) {
-        if (($selectedQuote['text'] ?? '') === $fallbackQuote) {
-          $alreadyExists = true;
-          break;
-        }
+      $fallbackKey = strtolower(trim($fallbackQuote)) . '|kneehigh';
+      if (isset($seenQuoteKeys[$fallbackKey])) {
+        continue;
       }
 
-      if (!$alreadyExists) {
-        $selectedQuotes[] = [
-          'text' => $fallbackQuote,
-          'author' => 'Kneehigh',
-        ];
-      }
+      $seenQuoteKeys[$fallbackKey] = true;
+      $selectedQuotes[] = [
+        'text' => $fallbackQuote,
+        'author' => 'Kneehigh',
+      ];
     }
   }
 
@@ -77,7 +81,16 @@
   shuffle($keywords);
 
   $quoteItems = [];
+  $seenQuoteItems = [];
+
   foreach ($selectedQuotes as $quote) {
+    $quoteKey = strtolower(trim((string) ($quote['text'] ?? ''))) . '|' . strtolower(trim((string) ($quote['author'] ?? '')));
+
+    if ($quoteKey === '|' || isset($seenQuoteItems[$quoteKey])) {
+      continue;
+    }
+
+    $seenQuoteItems[$quoteKey] = true;
     $quoteItems[] = [
       'type' => 'quote',
       'content' => $quote['text'],
@@ -114,7 +127,8 @@
   ];
 ?>
 
-<section class="preflight-page">
+<section class="preflight-page text">
+
   <div class="preflight-collage" aria-label="Pre-flight collage of words and quotes">
     <?php foreach ($rows as $row): ?>
       <div class="preflight-row preflight-row--<?= $row['type'] ?>">
@@ -124,10 +138,12 @@
             style="grid-column: <?= $row['columns'][$index] ?>; transform: rotate(<?= (($index % 2 === 0) ? -5 : 6) + ($row['type'] === 'word' ? 2 : 0) ?>deg);"
           >
             <?php if ($row['type'] === 'quote'): ?>
-              <div class="preflight-quote-text"><?= $item['content'] ?></div>
-              <?php if (!empty($item['author'])): ?>
-                <div class="preflight-quote-author"><?= htmlspecialchars($item['author'], ENT_QUOTES, 'UTF-8') ?></div>
-              <?php endif ?>
+              <blockquote class="preflight-quote-text">
+                <?= $item['content'] ?>
+                <?php if (!empty($item['author'])): ?>
+                  <footer class="preflight-quote-author"><cite><?= htmlspecialchars($item['author'], ENT_QUOTES, 'UTF-8') ?></cite></footer>
+                <?php endif ?>
+              </blockquote>
             <?php else: ?>
               <?= $item['content'] ?>
             <?php endif ?>
@@ -137,5 +153,8 @@
     <?php endforeach ?>
   </div>
 </section>
+
+ <a class="btn choice-btn choice-back" href="/">Back</a>
+  <a class="btn choice-btn choice-next" href="/choice">Next</a>
 
 <?php snippet('footer') ?>
