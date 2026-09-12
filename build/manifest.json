@@ -39,15 +39,6 @@
     "src": "assets/css/templates/about.css",
     "isEntry": true
   },
-  "assets/css/templates/album.css": {
-    "file": "assets/album-CxWAB_0Y.css",
-    "name": "album",
-    "names": [
-      "album.css"
-    ],
-    "src": "assets/css/templates/album.css",
-    "isEntry": true
-  },
   "assets/css/templates/archive-object.css": {
     "file": "assets/archive-object-x1XGuNl0.css",
     "name": "archive-object",
@@ -67,7 +58,7 @@
     "isEntry": true
   },
   "assets/css/templates/contents.css": {
-    "file": "assets/contents-BI-hyN2o.css",
+    "file": "assets/contents-BfSaUW9S.css",
     "name": "contents",
     "names": [
       "contents.css"
@@ -92,6 +83,15 @@
       "production.css"
     ],
     "src": "assets/css/templates/note.css",
+    "isEntry": true
+  },
+  "assets/css/templates/person.css": {
+    "file": "assets/person-fmDGgyxR.css",
+    "name": "person",
+    "names": [
+      "person.css"
+    ],
+    "src": "assets/css/templates/person.css",
     "isEntry": true
   },
   "assets/css/templates/pre-flight.css": {
