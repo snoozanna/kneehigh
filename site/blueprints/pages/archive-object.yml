@@ -47,7 +47,7 @@ columns:
           date:
             label: Date
             type: date
-            default: now
+            default: null
             display: YYYY
 
           format:

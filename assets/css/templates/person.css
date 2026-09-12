@@ -1,5 +1,5 @@
 .album-gallery {
-  line-height: 0;
+  /* line-height: 0; */
   columns: 1;
   column-gap: 1.5rem;
 }

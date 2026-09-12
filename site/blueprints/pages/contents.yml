@@ -1,6 +1,6 @@
-# site/blueprints/pages/choice.yml
-# This page controls the overall Choice flow and the ordering of featured pages.
-title: Choice
+# site/blueprints/pages/contents.yml
+# This page controls the overall Contents flow and the ordering of featured pages.
+title: Contents
 
 icon: 🔀
 
@@ -14,8 +14,8 @@ sections:
     fields:
       subheadline:
         type: text
-      choice_order:
-        label: Choice order
+      contents_order:
+        label: Contents order
         type: structure
         help: Drag items to set the order visitors move through the featured pages.
         fields:
@@ -23,7 +23,7 @@ sections:
             label: Page
             type: pages
             multiple: false
-            query: site.index.filterBy("is_featured_on_choice", true)
+            query: site.index.filterBy("is_featured_on_contents", true)
       layout:
         label: Layout
         type: layout

@@ -1,32 +1,36 @@
-# Each page blueprint must have a title, the title may be different from the file name
-title: Notes
+# blueprints/pages/case-studies.yml
+# Parent page blueprint for the Case Studies collection
+title: Case Studies
+options:
+  template: case-study # children are created using this template by default
 
 # Each page can have an icon that is shown in page listings when no preview image is available.
-icon: 📖
+icon: 📚
 
 # Define the form layout with two columns
 # More about columns: https://getkirby.com/docs/guide/blueprints/layout#defining-columns
 
 columns:
   - width: 1/3
-    # In the first column, we reuse the `notes` section
-    # (defined in `/site/blueprints/sections/notes.yml` twice with different page status and headline
+    # In the first column, we show draft and review status pages
     sections:
       drafts:
-        extends: sections/notes
+        extends: sections/case-studies
         label: Drafts
         status: draft
 
       unlisted:
-        extends: sections/notes
+        extends: sections/case-studies
         label: In Review
         status: unlisted
 
   - width: 2/3
-    # In the second column, we reuse the same section, this time for listed pages and with a different headline
+    # In the second column, we show listed (published) pages
     sections:
       listed:
-        extends: sections/notes
+        extends: sections/case-studies
+        create:
+          - case-study
         label: Published
         status: listed
         size: small

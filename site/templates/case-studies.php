@@ -21,20 +21,24 @@
 <?php snippet('header') ?>
 <?php snippet('intro') ?>
 
-<ul class="text">
-  <?php foreach ($productions as $production): ?>
-    <li>
-      <a href="<?= $production->url() ?>">
-          <time datetime="<?= $production->date()->toDate('c') ?>">
-        <?= $production->date()->toDate('Y') ?>
-      </time>
-        <?= $production->title()->esc() ?>
-      </a>
-    
-    </li>
+<ul class="grid" style="--gutter: 1.5rem">
+  <?php foreach ($page->children()->listed() as $study): ?>
+  <li class="column" style="--columns: 3">
+    <a href="<?= $study->url() ?>">
+      <figure>
+        <span class="img" style="--w:4;--h:5">
+          <?php if ($cover = $study->cover()): ?>
+            <img src="<?= $cover->crop(400, 500)->url() ?>" alt="<?= $cover->alt()->esc() ?>">
+          <?php endif ?>
+          
+        </span>
+        <figcaption class="img-caption">
+          <?= $study->title()->esc() ?>
+        </figcaption>
+      </figure>
+    </a>
+  </li>
   <?php endforeach ?>
 </ul>
-<br/><br/>
-<?php snippet('contents-navigation') ?>
 
 <?php snippet('footer') ?>

@@ -126,37 +126,37 @@ while (
 
     $outputRow = [
 
-    value($row, $headerMap, 'Object number'),
+    value($row, $headerMap, 'object_number'),
 
-    value($row, $headerMap, 'Title'),
+    value($row, $headerMap, 'title'),
 
-    value($row, $headerMap, 'Format of object'),
+    value($row, $headerMap, 'format'),
 
-    value($row, $headerMap, 'Object description'),
+    value($row, $headerMap, 'description'),
 
-    value($row, $headerMap, 'Subheadline'),
+    value($row, $headerMap, 'subheadline'),
 
-    value($row, $headerMap, 'Text'),
+    value($row, $headerMap, 'text'),
 
-    value($row, $headerMap, 'Link in googledrive'),
+    value($row, $headerMap, 'google_drive_link'),
 
-    value($row, $headerMap, 'Video URL'),
+    value($row, $headerMap, 'video_url'),
 
-    value($row, $headerMap, 'Sound URL'),
+    value($row, $headerMap, 'sound_url'),
 
-    value($row, $headerMap, 'External Asset URL'),
+    value($row, $headerMap, 'external_url'),
 
-    value($row, $headerMap, 'Production'),
+    value($row, $headerMap, 'production'),
 
-    value($row, $headerMap, 'Photographer Credit'),
+    value($row, $headerMap, 'photographer_credit'),
 
-    value($row, $headerMap, 'Date/Year'),
+    value($row, $headerMap, 'date'),
 
-    value($row, $headerMap, 'People'),
+    value($row, $headerMap, 'people'),
 
-    value($row, $headerMap, 'Tags'),
+    value($row, $headerMap, 'tags'),
 
-    value($row, $headerMap, 'Is featured on front page?')
+    value($row, $headerMap, 'is_featured')
 ];
 
     fputcsv(

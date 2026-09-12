@@ -17,10 +17,13 @@ columns:
   # The second column has two sections, `notes` and `pages`
   - width: 1/3
     sections:
-      # The `notes` section reuses the pages section defined in `/site/blueprints/sections/notes.yml`
       productions:
         extends: sections/productions
         status: listed
+      case-studies:
+        extends: sections/case-studies
+        status: listed
+
   - width: 1/3
     sections:
       people:

@@ -30,12 +30,17 @@ return function ($page) {
         });
     }
 
+    // Exclude Studio Archive objects
+    $allObjects = $allObjects->filter(function ($item) {
+        return (string) $item->format()->value() !== 'studio';
+    });
+
     $objects = $allObjects->paginate(24);
 
     $formatOptions = [];
     foreach ($page->children()->listed() as $object) {
         $value = $object->format()->value();
-        if ($value === '') {
+        if ($value === '' || $value === null || $value === 'studio') {
             continue;
         }
 

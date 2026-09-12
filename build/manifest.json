@@ -66,13 +66,13 @@
     "src": "assets/css/templates/archive.css",
     "isEntry": true
   },
-  "assets/css/templates/choice.css": {
-    "file": "assets/choice-BA6Wd5HC.css",
-    "name": "choice",
+  "assets/css/templates/contents.css": {
+    "file": "assets/contents-BI-hyN2o.css",
+    "name": "contents",
     "names": [
-      "choice.css"
+      "contents.css"
     ],
-    "src": "assets/css/templates/choice.css",
+    "src": "assets/css/templates/contents.css",
     "isEntry": true
   },
   "assets/css/templates/home.css": {
@@ -95,7 +95,7 @@
     "isEntry": true
   },
   "assets/css/templates/pre-flight.css": {
-    "file": "assets/pre-flight-BE4QkA68.css",
+    "file": "assets/pre-flight-DA9IXEir.css",
     "name": "pre-flight",
     "names": [
       "pre-flight.css"

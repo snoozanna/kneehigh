@@ -47,7 +47,7 @@
     <!-- Left column -->
     <div class="column" style="--columns: 4">
     <?php if ($cover = $page->cover()): ?>
-<a href="<?= $cover->url() ?>" data-lightbox class="img" style="--w:2; --h:1">
+<a href="<?= $cover->url() ?>" data-lightbox class="img" style="--w:2; --h:2">
   <img src="<?= $cover->crop(1200, 600)->url() ?>" alt="<?= $cover->alt()->esc() ?>">
 </a>
 <?php endif ?>
@@ -88,40 +88,92 @@
 <br/>
 <!-- Archive Objects -->
   <?php if ($archiveObjects->isNotEmpty()): ?>
-<h2><strong>Archive Objects</strong></h2>
- 
+    <h2><strong>Archive Objects</strong></h2>
 
-        <ul class="album-gallery">
-        <?php foreach ($archiveObjects as $object): ?>
+    <ul class="album-gallery">
+      <?php foreach ($archiveObjects as $object): ?>
 
-<?php if ($cover = $object->cover()): ?>
-    <li>
-        <a href="<?= $object->url() ?>">
-            <figure
-                class="img"
-                style="--w:<?= $cover->width() ?>;--h:<?= $cover->height() ?>"
-            >
+        <?php
+          $images = $object->files()->filterBy('type', 'image');
+          $firstImage = $images->first();
+          $imageCount = $images->count();
+        ?>
+
+        <li class="archive-card">
+          <a href="<?= $object->url() ?>">
+
+            <?php if ($imageCount === 1 && $firstImage): ?>
+
+              <figure
+                class="img img--single"
+                style="--w:<?= $firstImage->width() ?>;--h:<?= $firstImage->height() ?>"
+              >
                 <img
-                    src="<?= $cover->resize(1200)->url() ?>"
-                    alt="<?= $cover->alt()->esc() ?>"
+                  src="<?= $firstImage->resize(2000)->url() ?>"
+                  alt="<?= $firstImage->alt()->esc() ?>"
                 >
-            </figure>
+              </figure>
 
-            
+            <?php elseif ($imageCount > 1): ?>
 
-            <h2><strong><?= $object->description()->esc() ?></strong></h2>
-        </a>
-    </li>
-<?php endif ?>
+              <div class="img img--gallery">
+                <?php foreach ($images->limit(4) as $img): ?>
+                  <figure
+                    class="img__thumb"
+                    style="--w:<?= $img->width() ?>;--h:<?= $img->height() ?>"
+                  >
+                    <img
+                      src="<?= $img->resize(800)->url() ?>"
+                      alt="<?= $img->alt()->esc() ?>"
+                    >
+                  </figure>
+                <?php endforeach ?>
+              </div>
 
-<?php endforeach ?>
+            <?php elseif ($firstImage): ?>
 
-        </ul>
+              <figure class="img">
+                <img src="<?= $firstImage->resize(1200)->url() ?>" alt="<?= $firstImage->alt()->esc() ?>">
+              </figure>
 
-        <?php else: ?>
+            <?php endif ?>
 
+            <figcaption>
 
-<?php endif ?>
+              <span class="archive-embed__title">
+                <?= $object->description()->or($object->title()) ?>
+              </span>
+              <span class="archive-embed__meta">
+                <?= $object->date()->toDate('Y') ?>
+                <?php
+                  $credit = '';
+                  if ($firstImage && $firstImage->credit()->isNotEmpty()) {
+                    $credit = $firstImage->credit()->esc();
+                  } elseif ($object->photographer_credit()->isNotEmpty()) {
+                    $credit = $object->photographer_credit()->esc();
+                  }
+                  if ($credit) {
+                    echo ' · ' . $credit;
+                  }
+                ?>
+              </span>
+
+              <?php if ($firstImage && $firstImage->caption()->isNotEmpty()): ?>
+                <p class="archive-embed__desc"><?= $firstImage->caption()->esc() ?></p>
+              <?php elseif ($object->text()->isNotEmpty()): ?>
+                <p class="archive-embed__desc"><?= $object->text()->excerpt(120) ?></p>
+              <?php endif ?>
+
+            </figcaption>
+
+          </a>
+        </li>
+
+      <?php endforeach ?>
+
+    </ul>
+
+  <?php endif ?>
 
 
     </div>

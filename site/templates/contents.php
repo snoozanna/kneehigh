@@ -1,24 +1,24 @@
 <?php
 snippet('header');
 
-if (kirby()->request()->is('post') && kirby()->request()->get('choice_mode') !== null) {
-  $postedMode = kirby()->request()->get('choice_mode');
+if (kirby()->request()->is('post') && kirby()->request()->get('contents_mode') !== null) {
+  $postedMode = kirby()->request()->get('contents_mode');
 
   if (in_array($postedMode, ['guided', 'free'], true)) {
-    kirby()->session()->set('choice_mode', $postedMode);
+    kirby()->session()->set('contents_mode', $postedMode);
   }
 }
 
-$mode = kirby()->session()->get('choice_mode');
+$mode = kirby()->session()->get('contents_mode');
 if (!in_array($mode, ['guided', 'free'], true)) {
   $mode = 'guided';
-  kirby()->session()->set('choice_mode', $mode);
+  kirby()->session()->set('contents_mode', $mode);
 }
 
-$choiceOrder = $page->choice_order()->toStructure();
+$contentsOrder = $page->contents_order()->toStructure();
 $orderedPages = [];
 
-foreach ($choiceOrder as $item) {
+foreach ($contentsOrder as $item) {
   $linkedPage = $item->page()->toPage();
 
   if ($linkedPage) {
@@ -30,23 +30,23 @@ if ($mode === 'free' && !empty($orderedPages)) {
   shuffle($orderedPages);
 }
 
-$featuredPages = site()->index()->filterBy('is_featured_on_choice', true);
+$featuredPages = site()->index()->filterBy('is_featured_on_contents', true);
 ?>
 
 <?php snippet('intro') ?>
 
-<form method="post" class="choice-mode-switcher" id="choice-mode-form">
-  <input type="hidden" name="choice_mode" id="choice-mode-input" value="<?= $mode ?>">
+<form method="post" class="contents-mode-switcher" id="contents-mode-form">
+  <input type="hidden" name="contents_mode" id="contents-mode-input" value="<?= $mode ?>">
 
-  <label class="choice-toggle" for="choice-toggle">
-    <span class="choice-toggle-text">TELL ME WHERE TO GO</span>
+  <label class="contents-toggle" for="contents-toggle">
+    <span class="contents-toggle-text">TELL ME WHERE TO GO</span>
     <input
       type="checkbox"
-      id="choice-toggle"
+      id="contents-toggle"
       <?= $mode === 'guided' ? 'checked' : '' ?>
       aria-checked="<?= $mode === 'guided' ? 'true' : 'false' ?>"
     >
-    <span class="choice-toggle-switch" aria-hidden="true"></span>
+    <span class="contents-toggle-switch" aria-hidden="true"></span>
   </label>
 
   <noscript>
@@ -56,9 +56,9 @@ $featuredPages = site()->index()->filterBy('is_featured_on_choice', true);
 
 <script>
   (function(){
-    var toggle = document.getElementById('choice-toggle');
-    var input = document.getElementById('choice-mode-input');
-    var form = document.getElementById('choice-mode-form');
+    var toggle = document.getElementById('contents-toggle');
+    var input = document.getElementById('contents-mode-input');
+    var form = document.getElementById('contents-mode-form');
 
     if (!toggle || !input || !form) return;
 
@@ -69,7 +69,7 @@ $featuredPages = site()->index()->filterBy('is_featured_on_choice', true);
       // Try a fetch POST so the change happens immediately and then reload
       try{
         var fd = new FormData();
-        fd.append('choice_mode', mode);
+        fd.append('contents_mode', mode);
         fetch(window.location.href, { method: 'POST', body: fd, credentials: 'same-origin' })
           .then(function(response){
             if (response && response.ok) {
@@ -93,16 +93,16 @@ $featuredPages = site()->index()->filterBy('is_featured_on_choice', true);
     });
   })();
 </script>
-<div class="choice-list">
+<div class="contents-list">
 <?php if (!empty($orderedPages)): ?>
-  <ul class="choice-grid">
+  <ul class="contents-grid">
     <?php foreach ($orderedPages as $i => $item): $index = $i + 1; ?>
-      <li class="choice-item">
+      <li class="contents-item">
         <a href="<?= $item->url() ?>">
-          <span class="choice-content">
-            <span class="choice-title"><?= $item->title()->esc() ?></span>
+          <span class="contents-content">
+            <span class="contents-title"><?= $item->title()->esc() ?></span>
             <?php if ($mode === 'guided'): ?>
-              <span class="choice-badge"><?= $index ?></span>
+              <span class="contents-badge"><?= $index ?></span>
             <?php endif ?>
           </span>
         </a>
@@ -110,20 +110,20 @@ $featuredPages = site()->index()->filterBy('is_featured_on_choice', true);
     <?php endforeach ?>
   </ul>
 <?php elseif ($featuredPages->isNotEmpty()): ?>
-  <p>Featured pages are available, but no choice order has been set yet.</p>
-  <ul class="choice-grid">
+  <p>Featured pages are available, but no contents order has been set yet.</p>
+  <ul class="contents-grid">
     <?php foreach ($featuredPages as $i => $item): $index = $i + 1; ?>
-      <li class="choice-item">
+      <li class="contents-item">
         <a href="<?= $item->url() ?>">
-          <span class="choice-content">
-            <span class="choice-title"><?= $item->title()->esc() ?></span>
+          <span class="contents-content">
+            <span class="contents-title"><?= $item->title()->esc() ?></span>
           </span>
         </a>
       </li>
     <?php endforeach ?>
   </ul>
 <?php else: ?>
-  <p>No pages are currently marked as featured on Choice.</p>
+  <p>No pages are currently marked as featured on Contents.</p>
 <?php endif ?>
 </div>
 <?php snippet('footer') ?>

@@ -19,8 +19,8 @@ columns:
       intro:
         type: fields
         fields:
-          is_featured_on_choice:
-            label: Include this page on the Choice page?
+          is_featured_on_contents:
+            label: Include this page on the Contents page?
             type: toggle
             default: false
             text:

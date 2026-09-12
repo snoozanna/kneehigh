@@ -2,11 +2,15 @@ Title: A Matter of Life & Death
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://1ytqegd66kjbbzzw'
 
 ----
 

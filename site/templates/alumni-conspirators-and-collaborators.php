@@ -56,6 +56,6 @@ We quite often task people.  Fairly quickly people respond to the provocation an
 
 
 
-<?php snippet('choice-navigation') ?>
+<?php snippet('contents-navigation') ?>
 
 <?php snippet('footer') ?>

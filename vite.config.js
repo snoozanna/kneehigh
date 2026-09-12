@@ -12,7 +12,7 @@ export default defineConfig({
         "assets/css/templates/archive-object.css",
         "assets/css/templates/archive.css",
         "assets/css/templates/album.css",
-        "assets/css/templates/choice.css",
+        "assets/css/templates/contents.css",
         "assets/css/templates/home.css",
         "assets/css/templates/pre-flight.css",
         "assets/css/templates/note.css",

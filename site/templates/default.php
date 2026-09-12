@@ -23,6 +23,6 @@
 
 <?php snippet('layouts', ['field' => $page->layout()])  ?>
 
-<?php snippet('choice-navigation') ?>
+<?php snippet('contents-navigation') ?>
 
 <?php snippet('footer') ?>

@@ -6,7 +6,7 @@ Subheadline:
 
 ----
 
-Is-featured-on-choice: true
+Is-featured-on-contents: true
 
 ----
 

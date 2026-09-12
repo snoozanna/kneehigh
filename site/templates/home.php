@@ -95,6 +95,6 @@
     <?= $page->text()->toBlocks() ?>
   </div>
 
-  <a class="btn choice-btn choice-next" href="/pre-flight">Begin</a>
+<a class="btn contents-btn contents-next" href="/pre-flight">Begin</a>
 
 <?php snippet('footer') ?>

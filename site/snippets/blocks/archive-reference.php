@@ -146,23 +146,39 @@
     <!-- VIDEO -->
     <?php elseif ($block->display() == 'video'): ?>
 
-      <?php foreach ($items as $target): ?>
-
-        <div class="archive-embed archive-embed--video">
-
-          <?php if ($target->video_url()->isNotEmpty()): ?>
-
-            <?= video($target->video_url()) ?>
-
+<?php foreach ($items as $target): ?>
+    <div class="archive-media archive-media--video archive-card">
+      <?php if ($target->video_url()->isNotEmpty()): ?>
+   <div class="video" style="--w:16;--h:9;">
+            <?= video($target->video_url(),
+              ['responsive' => true],
+              [
+                'loading' => 'lazy',
+                'allow' => 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture',
+                'class' => 'archive-video__iframe'
+              ]
+            ) ?>
+ </div>
+   
           <?php endif ?>
+<br/>
+           <figcaption>
+  <a href="<?= $target->url() ?>">
+                <span class="archive-embed__title">
+                  <?= $target->description()->or($target->title()) ?>
+                </span>
+                <span class="archive-embed__meta">
+                 
+                  <?= $target->date()->toDate('Y') ?>
+               
 
-          <h2>
-            <a href="<?= $target->url() ?>">
-              <?= $target->headline()->or($target->title()) ?>
-            </a>
-          </h2>
+                <?php if ($target->caption()->isNotEmpty()): ?>
+                  <p class="archive-embed__desc"><?= $target->caption()->esc() ?></p>
+               
+                <?php endif ?>
+    </a>
+</figcaption>
 
-          <?= $target->text()->toBlocks() ?>
 
         </div>
 

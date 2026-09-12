@@ -57,7 +57,7 @@ button {
   cursor: pointer;
 }
 
-/* Site-wide square button styles (inlined from templates/choice-buttons.css)
+/* Site-wide square button styles (inlined from templates/contents.css)
    Matches the archive filters visual language: square edges, clear border.
 */
 .btn {

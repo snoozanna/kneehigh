@@ -1,0 +1,122 @@
+/* Minimal, sleek contents grid styles */
+.contents-list {
+  margin-top: 1.25rem;
+}
+
+.contents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contents-item {
+  position: relative;
+}
+
+.contents-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 160px;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.contents-item a:hover,
+.contents-item a:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+}
+
+.contents-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.contents-title {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: #111;
+}
+
+.contents-badge {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: var(--color-grey);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.contents-toggle {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  align-items: center;
+  gap: 0.5rem;
+  display: inline-flex;
+}
+
+.contents-toggle-text {
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+.contents-toggle input[type="checkbox"] {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.contents-toggle-switch {
+  background: #e9e9eb;
+  border-radius: 999px;
+  width: 44px;
+  height: 24px;
+  transition: background 0.18s;
+  position: relative;
+}
+
+.contents-toggle input[type="checkbox"]:checked + .contents-toggle-switch {
+  background: #111;
+}
+
+.contents-toggle-switch:after {
+  content: "";
+  background: #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.18s;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  box-shadow: 0 2px 6px #00000014;
+}
+
+.contents-toggle
+  input[type="checkbox"]:checked
+  + .contents-toggle-switch:after {
+  transform: translate(20px);
+}

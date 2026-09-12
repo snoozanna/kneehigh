@@ -154,7 +154,7 @@
   </div>
 </section>
 
- <a class="btn choice-btn choice-back" href="/">Back</a>
-  <a class="btn choice-btn choice-next" href="/choice">Next</a>
+ <a class="btn contents-btn contents-back" href="/">Back</a>
+  <a class="btn contents-btn contents-next" href="/contents">Next</a>
 
 <?php snippet('footer') ?>
