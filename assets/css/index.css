@@ -204,7 +204,7 @@ h6 {
 }
 
 .text {
-  line-height: 1.5em;
+  line-height: 1.8em;
 }
 .text a {
   text-decoration: underline;
@@ -215,10 +215,12 @@ h6 {
 .text :last-child {
   margin-bottom: 0;
 }
+
 .text p,
 .text ul,
 .text ol {
   margin-bottom: 1.5rem;
+  font-size: larger;
 }
 .text ul,
 .text ol {
@@ -654,5 +656,6 @@ hr {
 
 .note-excerpt.studio h2 {
   margin-bottom: 1rem;
-  font-size: 1.25rem;
+  font-size: 2rem;
+  line-height: 1.2em;
 }
