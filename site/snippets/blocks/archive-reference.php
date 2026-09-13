@@ -101,7 +101,8 @@
       <?php foreach ($items as $target): ?>
 
         <blockquote>
-
+<img src="assets/img/symbols/wild-bride.png" alt="Wild Bride">
+<br/>
           <?= $target->text()->toBlocks() ?>
 
           <?php if ($target->people()->isNotEmpty()): ?>

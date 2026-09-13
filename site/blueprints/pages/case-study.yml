@@ -4,7 +4,7 @@ title: Case Study
 
 # Sorting number scheme that is applied when page status is changed to `listed`
 # More about page sorting: https://getkirby.com/docs/reference/panel/blueprints/page#sorting
-num: date
+num: default
 
 # Each page can have an icon that is shown in page listings when no preview image is available.
 icon: 📖

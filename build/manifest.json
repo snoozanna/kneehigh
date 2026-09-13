@@ -3,8 +3,32 @@
     "file": "assets/rolldown-runtime-C4N-s-pu.js",
     "name": "rolldown-runtime"
   },
+  "assets/css/fonts.css": {
+    "file": "assets/fonts-C5-pOmtN.css",
+    "name": "fonts",
+    "names": [
+      "fonts.css"
+    ],
+    "src": "assets/css/fonts.css",
+    "isEntry": true,
+    "assets": [
+      "assets/BilzigTrial-Regular-UowaP2HN.otf",
+      "assets/BilzigTrial-Italic-BRHL7hPw.otf",
+      "assets/BilzigTrial-Medium-DLAQedrT.otf",
+      "assets/BilzigTrial-MediumItalic-m9YDPqgW.otf",
+      "assets/BilzigTrial-Bold-BlIPfXbI.otf",
+      "assets/BilzigTrial-BoldItalic-GMiIDUw5.otf",
+      "assets/BilzigTrial-Black-uXZn4ZZ7.otf",
+      "assets/BilzigTrial-BlackItalic-2KhuATq6.otf",
+      "assets/LetterGothicStd-0jtnUMi5.otf",
+      "assets/LetterGothicStd-Slanted-Cc75CwgX.otf",
+      "assets/LetterGothicStd-Bold-BxlaXemf.otf",
+      "assets/LetterGothicStd-BoldSlanted-B4YckuUA.otf",
+      "assets/trixie-extra-BhhAsFDV.otf"
+    ]
+  },
   "assets/css/index.css": {
-    "file": "assets/index-BHyV-NQV.css",
+    "file": "assets/index-8lMAuUoG.css",
     "name": "index",
     "names": [
       "index.css"
@@ -112,6 +136,58 @@
     ],
     "src": "assets/css/templates/note.css",
     "isEntry": true
+  },
+  "assets/fonts/Bilzig/BilzigTrial-Black.otf": {
+    "file": "assets/BilzigTrial-Black-uXZn4ZZ7.otf",
+    "src": "assets/fonts/Bilzig/BilzigTrial-Black.otf"
+  },
+  "assets/fonts/Bilzig/BilzigTrial-BlackItalic.otf": {
+    "file": "assets/BilzigTrial-BlackItalic-2KhuATq6.otf",
+    "src": "assets/fonts/Bilzig/BilzigTrial-BlackItalic.otf"
+  },
+  "assets/fonts/Bilzig/BilzigTrial-Bold.otf": {
+    "file": "assets/BilzigTrial-Bold-BlIPfXbI.otf",
+    "src": "assets/fonts/Bilzig/BilzigTrial-Bold.otf"
+  },
+  "assets/fonts/Bilzig/BilzigTrial-BoldItalic.otf": {
+    "file": "assets/BilzigTrial-BoldItalic-GMiIDUw5.otf",
+    "src": "assets/fonts/Bilzig/BilzigTrial-BoldItalic.otf"
+  },
+  "assets/fonts/Bilzig/BilzigTrial-Italic.otf": {
+    "file": "assets/BilzigTrial-Italic-BRHL7hPw.otf",
+    "src": "assets/fonts/Bilzig/BilzigTrial-Italic.otf"
+  },
+  "assets/fonts/Bilzig/BilzigTrial-Medium.otf": {
+    "file": "assets/BilzigTrial-Medium-DLAQedrT.otf",
+    "src": "assets/fonts/Bilzig/BilzigTrial-Medium.otf"
+  },
+  "assets/fonts/Bilzig/BilzigTrial-MediumItalic.otf": {
+    "file": "assets/BilzigTrial-MediumItalic-m9YDPqgW.otf",
+    "src": "assets/fonts/Bilzig/BilzigTrial-MediumItalic.otf"
+  },
+  "assets/fonts/Bilzig/BilzigTrial-Regular.otf": {
+    "file": "assets/BilzigTrial-Regular-UowaP2HN.otf",
+    "src": "assets/fonts/Bilzig/BilzigTrial-Regular.otf"
+  },
+  "assets/fonts/LetterGothicStd/LetterGothicStd-Bold.otf": {
+    "file": "assets/LetterGothicStd-Bold-BxlaXemf.otf",
+    "src": "assets/fonts/LetterGothicStd/LetterGothicStd-Bold.otf"
+  },
+  "assets/fonts/LetterGothicStd/LetterGothicStd-BoldSlanted.otf": {
+    "file": "assets/LetterGothicStd-BoldSlanted-B4YckuUA.otf",
+    "src": "assets/fonts/LetterGothicStd/LetterGothicStd-BoldSlanted.otf"
+  },
+  "assets/fonts/LetterGothicStd/LetterGothicStd-Slanted.otf": {
+    "file": "assets/LetterGothicStd-Slanted-Cc75CwgX.otf",
+    "src": "assets/fonts/LetterGothicStd/LetterGothicStd-Slanted.otf"
+  },
+  "assets/fonts/LetterGothicStd/LetterGothicStd.otf": {
+    "file": "assets/LetterGothicStd-0jtnUMi5.otf",
+    "src": "assets/fonts/LetterGothicStd/LetterGothicStd.otf"
+  },
+  "assets/fonts/trixie-extra.otf": {
+    "file": "assets/trixie-extra-BhhAsFDV.otf",
+    "src": "assets/fonts/trixie-extra.otf"
   },
   "assets/js/index.js": {
     "file": "assets/index-CDKCZZNG.js",

@@ -23,10 +23,12 @@
   --color-code-blue: #7e9abf;
   --color-code-purple: #b294bb;
   --font-family-sans:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    "Bilzig", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-mono:
-    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    "Letter Gothic Std", "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+    Courier, monospace;
+  --font-kneehigh: "Trixie", var(--font-family-sans);
 }
 
 html {
@@ -137,10 +139,12 @@ small {
 }
 
 .logo {
+  font-family: var(--font-kneehigh);
   padding: 1rem;
   display: flex;
   align-items: center;
   font-weight: 600;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -239,6 +243,7 @@ h6 {
 .text h1,
 .h1,
 .intro {
+  font-family: var(--font-kneehigh);
   font-size: 2rem;
   margin-bottom: 3rem;
   line-height: 1.25em;
@@ -293,6 +298,11 @@ h6 {
   padding-left: 1rem;
   margin: 3rem 0;
   max-width: 25rem;
+  font-family: var(--font-family-mono);
+}
+
+.text blockquote img {
+  max-width: 5%;
 }
 .text blockquote footer {
   font-size: 0.875rem;

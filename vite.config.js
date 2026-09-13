@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [
     laravel({
       input: [
+        "assets/css/fonts.css",
         "assets/css/index.css",
         "assets/css/lightbox.css",
         "assets/css/prism.css",
@@ -18,6 +19,7 @@ export default defineConfig({
         "assets/css/templates/note.css",
         "assets/css/templates/production.css",
         "assets/js/index.js",
+        "assets/css/fonts.css",
         "assets/js/lightbox.js",
         "assets/js/prism.js",
       ],

@@ -1,0 +1,113 @@
+/* Bilzig Font Family */
+@font-face {
+  font-family: "Bilzig";
+  src: url("/assets/fonts/Bilzig/BilzigTrial-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bilzig";
+  src: url("/assets/fonts/Bilzig/BilzigTrial-Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bilzig";
+  src: url("/assets/fonts/Bilzig/BilzigTrial-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bilzig";
+  src: url("/assets/fonts/Bilzig/BilzigTrial-MediumItalic.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bilzig";
+  src: url("/assets/fonts/Bilzig/BilzigTrial-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bilzig";
+  src: url("/assets/fonts/Bilzig/BilzigTrial-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bilzig";
+  src: url("/assets/fonts/Bilzig/BilzigTrial-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bilzig";
+  src: url("/assets/fonts/Bilzig/BilzigTrial-BlackItalic.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Letter Gothic Std Font Family */
+@font-face {
+  font-family: "Letter Gothic Std";
+  src: url("/assets/fonts/LetterGothicStd/LetterGothicStd.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Letter Gothic Std";
+  src: url("/assets/fonts/LetterGothicStd/LetterGothicStd-Slanted.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Letter Gothic Std";
+  src: url("/assets/fonts/LetterGothicStd/LetterGothicStd-Bold.otf")
+    format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Letter Gothic Std";
+  src: url("/assets/fonts/LetterGothicStd/LetterGothicStd-BoldSlanted.otf")
+    format("opentype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Trixie - Kneehigh Font  */
+
+@font-face {
+  font-family: "Trixie";
+  src: url("/assets/fonts/trixie-extra.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

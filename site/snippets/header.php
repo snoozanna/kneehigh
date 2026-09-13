@@ -35,6 +35,7 @@
   $template = $page ->template();
   ?>
   <?= vite([
+    'assets/css/fonts.css',
     'assets/css/prism.css',
     'assets/css/lightbox.css',
     'assets/css/index.css',

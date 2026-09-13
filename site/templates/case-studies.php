@@ -40,5 +40,6 @@
   </li>
   <?php endforeach ?>
 </ul>
+<?php snippet('contents-navigation') ?>
 
 <?php snippet('footer') ?>

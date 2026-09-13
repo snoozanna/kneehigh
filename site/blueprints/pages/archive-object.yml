@@ -1,6 +1,6 @@
 # blueprints/pages/archive-object.yml
 title: Archive Object
-num: date
+num: default
 icon: 📖
 status:
   draft:
