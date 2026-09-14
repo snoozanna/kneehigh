@@ -26,7 +26,7 @@
 <article class="text">
 
  <header class="h1">
-  <h1><?= $page->headline()->or($page->title())->esc() ?></h1>
+  <h1 class="img-caption"><?= $page->headline()->or($page->title())->esc() ?>
         <?php if ($page->roles()->isNotEmpty()): ?>
 
       <?php
@@ -37,9 +37,9 @@
       }, $page->roles()->split());
       ?>
 
-      <p class="color-grey">
+     <span class="color-grey">
        <?= implode(', ', $roles) ?>
-      </p>
+      </h1>
 <?php endif ?>
 </header>
   <div class="grid">
@@ -72,8 +72,10 @@
     <h2><strong>Quotes</strong></h2>
 
     <?php foreach ($quotes as $quote): ?>
-      
-        <blockquote>
+     <blockquote>
+          <img src="../assets/img/symbols/wild-bride.png" alt="Wild Bride">
+<br/>
+          
           "<?= $quote->text()->toBlocks() ?>"
         </blockquote>
 
@@ -102,7 +104,21 @@
         <li class="archive-card">
           <a href="<?= $object->url() ?>">
 
-            <?php if ($imageCount === 1 && $firstImage): ?>
+            <?php if ($object->video_url()->isNotEmpty()): ?>
+
+              <div class="video" style="--w:16;--h:9;">
+                <?= video(
+                  $object->video_url(),
+                  ['responsive' => true],
+                  [
+                    'loading' => 'lazy',
+                    'allow' => 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture',
+                    'class' => 'archive-video__iframe'
+                  ]
+                ) ?>
+              </div>
+
+            <?php elseif ($imageCount === 1 && $firstImage): ?>
 
               <figure
                 class="img img--single"
@@ -136,6 +152,14 @@
                 <img src="<?= $firstImage->resize(1200)->url() ?>" alt="<?= $firstImage->alt()->esc() ?>">
               </figure>
 
+            <?php elseif ($object->music_url()->isNotEmpty()): ?>
+
+              <p class="archive-embed__link">Listen on SoundCloud &rarr;</p>
+
+            <?php elseif ($object->external_url()->isNotEmpty()): ?>
+
+              <p class="archive-embed__link">Visit external link &rarr;</p>
+
             <?php endif ?>
 
             <figcaption>
@@ -160,8 +184,7 @@
 
               <?php if ($firstImage && $firstImage->caption()->isNotEmpty()): ?>
                 <p class="archive-embed__desc"><?= $firstImage->caption()->esc() ?></p>
-              <?php elseif ($object->text()->isNotEmpty()): ?>
-                <p class="archive-embed__desc"><?= $object->text()->excerpt(120) ?></p>
+              
               <?php endif ?>
 
             </figcaption>

@@ -24,11 +24,13 @@
 <ul class="text">
   <?php foreach ($productions as $production): ?>
     <li>
-      <a href="<?= $production->url() ?>">
-          <time datetime="<?= $production->date()->toDate('c') ?>">
-        <?= $production->date()->toDate('Y') ?>
-      </time>
-        <?= $production->title()->esc() ?>
+<span class="timeline-production-date">
+  <time datetime="<?= $production->date()->toDate('c') ?>">
+          <?= $production->date()->toDate('Y') ?>
+        </time>
+</span>
+       <a href="<?= $production->url() ?>">
+        <span class="timeline-production-title"><?= $production->title()->esc() ?></span>
       </a>
     
     </li>

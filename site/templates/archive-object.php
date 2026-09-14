@@ -28,7 +28,7 @@
 <header class="h1">
   <h1 class="img-caption">
          <span class="img-caption__format"><?= $page->title()->esc() ?></span>
-    <span><?= $page->description()->esc() ?></span>
+    <span class="color-grey"><?= $page->description()->esc() ?></span>
 </h1>
 </header>
 

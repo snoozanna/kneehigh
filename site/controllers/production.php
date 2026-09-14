@@ -16,9 +16,28 @@ return function ($page) {
             return $object->production()->toPages()->has($page);
         });
 
+    $quotes = $archiveObjects->filter(function ($object) {
+        return $object->format()->value() === 'quote';
+    });
+
+    $otherArchiveObjects = $archiveObjects->filter(function ($object) {
+        return $object->format()->value() !== 'quote';
+    });
+
+    $formatOptions = [];
+    if ($first = $otherArchiveObjects->first()) {
+        $formatOptions = $first->blueprint()->field('format')['options'] ?? [];
+    }
+
+    $groupedArchiveObjects = $otherArchiveObjects->group(function ($object) {
+        return $object->format()->value();
+    });
 
     return [
         'gallery' => $gallery,
-        'archiveObjects' => $archiveObjects,
+        'archiveObjects' => $otherArchiveObjects,
+        'groupedArchiveObjects' => $groupedArchiveObjects,
+        'formatOptions' => $formatOptions,
+        'quotes' => $quotes,
     ];
 };

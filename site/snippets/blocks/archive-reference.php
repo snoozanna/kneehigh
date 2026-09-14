@@ -70,8 +70,8 @@
                     $credit = '';
                     if ($firstImage && $firstImage->credit()->isNotEmpty()) {
                       $credit = $firstImage->credit()->esc();
-                    } elseif ($target->photographer()->isNotEmpty()) {
-                      $credit = $target->photographer()->esc();
+                    } elseif ($target->photographer_credit()->isNotEmpty()) {
+                      $credit = $target->photographer_credit()->esc();
                     }
                     if ($credit) {
                       echo ' · ' . $credit;

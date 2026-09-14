@@ -139,6 +139,8 @@
           >
             <?php if ($row['type'] === 'quote'): ?>
               <blockquote class="preflight-quote-text">
+                <img src="assets/img/symbols/wild-bride.png" alt="Wild Bride">
+                <br/>
                 <?= $item['content'] ?>
                 <?php if (!empty($item['author'])): ?>
                   <footer class="preflight-quote-author"><cite><?= htmlspecialchars($item['author'], ENT_QUOTES, 'UTF-8') ?></cite></footer>

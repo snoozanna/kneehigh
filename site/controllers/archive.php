@@ -54,9 +54,9 @@ return function ($page) {
             continue;
         }
 
-        $year = (string) $item->date()->toDate('Y');
-        if ($year !== '') {
-            $years[$year] = true;
+        $yearValue = (string) $item->date()->toDate('Y');
+        if ($yearValue !== '') {
+            $years[$yearValue] = true;
         }
     }
 
@@ -67,7 +67,7 @@ return function ($page) {
         'objects' => $objects,
         'pagination' => $objects->pagination(),
         'formats' => $formatOptions,
-        'productions' => site()->find('productions')->children()->listed(),
+        'productions' => site()->find('productions')->children()->listed()->sortBy('title', 'asc'),
         'years' => $years,
         'currentFormat' => $format,
         'currentProduction' => $production,

@@ -23,72 +23,193 @@
 ?>
 <?php snippet('header') ?>
 
-<!-- <?php if ($cover = $page->cover()): ?>
-<a href="<?= $cover->url() ?>" data-lightbox class="img" style="--w:2; --h:1">
-  <img src="<?= $cover->crop(1200, 600)->url() ?>" alt="<?= $cover->alt()->esc() ?>">
-</a>
-<?php endif ?> -->
+<article class="text">
 
-<article class="note">
-  <header class="note-header h1">
-    <h1 class="note-title"><?= $page->title()->esc() ?></h1>
-    <?php if ($page->subheadline()->isNotEmpty()): ?>
-    <p class="note-subheading"><small><?= $page->subheadline()->esc() ?></small></p>
-    <?php endif ?>
+  <header class="h1">
+    <h1 class="img-caption"><?= $page->title()->esc() ?>
+      <?php if ($page->subheadline()->isNotEmpty()): ?>
+        <span class="color-grey"><?= $page->subheadline()->esc() ?></span>
+      <?php endif ?>
+    </h1>
   </header>
-  <div class="note text">
-    <?= $page->text()->toBlocks() ?>
+
+  <div class="grid">
+
+    <div class="column" style="--columns: 12">
+
+      <div class="text">
+        <?= $page->text()->toBlocks() ?>
+      </div>
+
+      <!-- Quotes -->
+      <?php if ($quotes->isNotEmpty()): ?>
+
+        <section class="person-quotes">
+
+          <h2><strong>Quotes</strong></h2>
+
+          <?php foreach ($quotes as $quote): ?>
+            <blockquote>
+              <img src="../assets/img/symbols/wild-bride.png" alt="<?= $page->title()->esc() ?>">
+              <br/>
+              "<?= $quote->text()->toBlocks() ?>"
+            </blockquote>
+            <br/>
+          <?php endforeach ?>
+
+        </section>
+
+      <?php endif ?>
+      <br/>
+
+      <!-- Archive Objects, sub-sectioned by format -->
+      <?php if ($archiveObjects->isNotEmpty()): ?>
+
+
+        <?php foreach ($groupedArchiveObjects as $formatKey => $objects): ?>
+
+          <section class="archive-format-group">
+
+            <?php
+              $formatLabel = $formatOptions[$formatKey] ?? $formatKey;
+              if ($formatKey === 'photograph') {
+                $formatLabel = 'Photographs';
+              }
+            ?>
+            <h2><?= esc($formatLabel) ?></h2>
+
+            <!-- IN THE STUDIO -->
+            <?php if ($formatKey === 'studio'): ?>
+
+              <?php foreach ($objects as $object): ?>
+                <div class="note-excerpt studio">
+                  <h2><?= $object->title()->esc() ?>: <?= $object->description()->esc() ?></h2>
+                  <?= $object->text()->toBlocks() ?>
+                </div>
+              <?php endforeach ?>
+
+            <?php else: ?>
+
+            <ul class="album-gallery">
+              <?php foreach ($objects as $object): ?>
+
+                <?php
+                  $images = $object->files()->filterBy('type', 'image');
+                  $firstImage = $images->first();
+                  $imageCount = $images->count();
+                ?>
+
+                <li class="archive-card">
+                  <a href="<?= $object->url() ?>">
+
+                    <?php if ($object->video_url()->isNotEmpty()): ?>
+
+                      <div class="video" style="--w:16;--h:9;">
+                        <?= video(
+                          $object->video_url(),
+                          ['responsive' => true],
+                          [
+                            'loading' => 'lazy',
+                            'allow' => 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture',
+                            'class' => 'archive-video__iframe'
+                          ]
+                        ) ?>
+                      </div>
+
+                    <?php elseif ($imageCount === 1 && $firstImage): ?>
+
+                      <figure
+                        class="img img--single"
+                        style="--w:<?= $firstImage->width() ?>;--h:<?= $firstImage->height() ?>"
+                      >
+                        <img
+                          src="<?= $firstImage->resize(2000)->url() ?>"
+                          alt="<?= $firstImage->alt()->esc() ?>"
+                        >
+                      </figure>
+
+                    <?php elseif ($imageCount > 1): ?>
+
+                      <div class="img img--gallery">
+                        <?php foreach ($images->limit(4) as $img): ?>
+                          <figure
+                            class="img__thumb"
+                            style="--w:<?= $img->width() ?>;--h:<?= $img->height() ?>"
+                          >
+                            <img
+                              src="<?= $img->resize(800)->url() ?>"
+                              alt="<?= $img->alt()->esc() ?>"
+                            >
+                          </figure>
+                        <?php endforeach ?>
+                      </div>
+
+                    <?php elseif ($firstImage): ?>
+
+                      <figure class="img">
+                        <img src="<?= $firstImage->resize(1200)->url() ?>" alt="<?= $firstImage->alt()->esc() ?>">
+                      </figure>
+
+                    <?php elseif ($object->music_url()->isNotEmpty()): ?>
+
+                      <p class="archive-embed__link">Listen on SoundCloud &rarr;</p>
+
+                    <?php elseif ($object->external_url()->isNotEmpty()): ?>
+
+                      <p class="archive-embed__link">Visit external link &rarr;</p>
+
+                    <?php endif ?>
+
+                    <figcaption>
+
+                      <span class="archive-embed__title">
+                        <?= $object->description()->or($object->title()) ?>
+                      </span>
+                      <span class="archive-embed__meta">
+                        <?= $object->date()->toDate('Y') ?>
+                        <?php
+                          $credit = '';
+                          if ($firstImage && $firstImage->credit()->isNotEmpty()) {
+                            $credit = $firstImage->credit()->esc();
+                          } elseif ($object->photographer_credit()->isNotEmpty()) {
+                            $credit = $object->photographer_credit()->esc();
+                          }
+                          if ($credit) {
+                            echo ' · ' . $credit;
+                          }
+                        ?>
+                      </span>
+
+                      <?php if ($firstImage && $firstImage->caption()->isNotEmpty()): ?>
+                        <p class="archive-embed__desc"><?= $firstImage->caption()->esc() ?></p>
+                      <?php endif ?>
+
+                    </figcaption>
+
+                  </a>
+                </li>
+
+              <?php endforeach ?>
+                 
+            </ul>
+
+            <?php endif ?>
+
+          </section>
+          <br/>
+
+        <?php endforeach ?>
+
+
+      <?php else: ?>
+
+        <p>No archive objects found.</p>
+
+      <?php endif ?>
+
+    </div>
+
   </div>
-
-  <!-- Archive Objects -->
-<h2><strong>Archive Objects</strong></h2>
-  <?php if ($archiveObjects->isNotEmpty()): ?>
-
-        <ul class="album-gallery">
-        <?php foreach ($archiveObjects as $object): ?>
-
-<?php if ($cover = $object->cover()): ?>
-    <li>
-        <a href="<?= $object->url() ?>">
-            <figure
-                class="img"
-                style="--w:<?= $cover->width() ?>;--h:<?= $cover->height() ?>"
-            >
-                <img
-                    src="<?= $cover->resize(1200)->url() ?>"
-                    alt="<?= $cover->alt()->esc() ?>"
-                >
-            </figure>
-
-            
-
-            <h2><strong><?= $object->title()->esc() ?></strong></h2>
-        </a>
-    </li>
-<?php endif ?>
-
-<?php endforeach ?>
-
-        </ul>
-
-        <?php else: ?>
-
-<p>No archive objects found.</p>
-
-<?php endif ?>
-  <footer class="note-footer">
-    <?php if (!empty($tags)): ?>
-    <ul class="note-tags">
-      <?php foreach ($tags as $tag): ?>
-      <li>
-        <a href="<?= $page->parent()->url(['params' => ['tag' => $tag]]) ?>"><?= esc($tag) ?></a>
-      </li>
-      <?php endforeach ?>
-    </ul>
-    <?php endif ?>
-
-    <!-- <time class="note-date" datetime="<?= $page->date()->toDate('c') ?>">Published on <?= $page->date()->esc() ?></time> -->
-  </footer>
 
 </article>
 

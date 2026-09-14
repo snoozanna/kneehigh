@@ -29,7 +29,7 @@
   <label>
     <span>Year</span>
     <select name="year" onchange="this.form.submit()">
-      <option value="">All years</option>
+      <option value="" <?= (($currentYear ?? '') === '') ? 'selected' : '' ?>>All years</option>
       <?php foreach ($years as $year): ?>
         <option value="<?= $year ?>" <?= ($currentYear ?? '') === (string) $year ? 'selected' : '' ?>>
           <?= $year ?>

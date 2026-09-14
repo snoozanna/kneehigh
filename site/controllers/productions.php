@@ -17,18 +17,18 @@ return function ($page) {
      * More about collections:
      * https://getkirby.com/docs/guide/templates/collections
      */
-    $productions = collection('productions');
+    $productions = collection('productions')->sortBy('title', 'asc');
 
     $tag = param('tag');
     if (empty($tag) === false) {
         $productions = $productions->filterBy('tags', $tag, ',');
     }
 
-   
+    $productions = $productions->sortBy('title', 'asc');
 
     return [
         'tag'   => $tag,
-        'productions' => $productions->paginate(6)
+        'productions' => $productions
     ];
 
 };
