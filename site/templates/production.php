@@ -152,7 +152,7 @@
 
                     <?php elseif ($object->music_url()->isNotEmpty()): ?>
 
-                      <p class="archive-embed__link">Listen on SoundCloud &rarr;</p>
+                      <p class="archive-embed__link">Listen &rarr;</p>
 
                     <?php elseif ($object->external_url()->isNotEmpty()): ?>
 

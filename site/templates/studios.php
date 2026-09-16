@@ -23,9 +23,14 @@
 
 <div class="studio-list">
 
+  <?php $textureCount = 7 ?>
+
   <?php foreach ($studios as $studio): ?>
 
-    <article class="note-excerpt studio">
+    <?php $texture = 'texture_' . random_int(1, $textureCount) . '.png' ?>
+    <?php $rotation = random_int(-30, 30) / 10 ?>
+
+    <article class="note-excerpt studio" style="--studio-texture: url('<?= url('assets/img/textures/' . $texture) ?>'); transform: rotate(<?= $rotation ?>deg)">
 
       <header class="studio__header">
 

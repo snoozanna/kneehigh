@@ -129,9 +129,14 @@
     <!-- IN THE STUDIO -->
     <?php elseif ($block->display() == 'studio'): ?>
 
+      <?php $textureCount = 7 ?>
+
       <?php foreach ($items as $target): ?>
 
-        <div class="note-excerpt studio">
+        <?php $texture = 'texture_' . random_int(1, $textureCount) . '.png' ?>
+        <?php $rotation = random_int(-30, 30) / 10 ?>
+
+        <div class="note-excerpt studio" style="--studio-texture: url('<?= url('assets/img/textures/' . $texture) ?>'); transform: rotate(<?= $rotation ?>deg)">
 
           <h2>  <?= $target->title ()->esc() ?>: <?= $target->description ()->esc() ?></h2>
          
@@ -201,7 +206,7 @@
                 target="_blank"
                 rel="noopener"
               >
-                Listen on SoundCloud →
+                Listen →
               </a>
             </p>
 

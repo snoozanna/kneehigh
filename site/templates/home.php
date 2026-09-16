@@ -27,32 +27,19 @@
   ?>
   <?php if ($archivePage = page('archive')): ?>
     <?php
-      $backgrounds = $archivePage->children()->listed()->filterBy('is_featured', 'background');
-      $foregrounds = $archivePage->children()->listed()->filterBy('is_featured', 'foreground');
+      $collages = $archivePage->children()->listed()->filterBy('format', 'collage')->filterBy('is_featured', true);
 
-      // initial picks
-      $background = $backgrounds->count() ? $backgrounds->shuffle()->first() : null;
-      $foregroundItems = $foregrounds->count() ? $foregrounds->shuffle()->limit(3) : [];
+      // initial pick
+      $collage = $collages->count() ? $collages->shuffle()->first() : null;
 
-      // prepare arrays for JS
-      $bgArray = [];
-      foreach ($backgrounds as $b) {
-        if ($img = $b->cover()) {
-          $bgArray[] = [
+      // prepare array for JS
+      $collageArray = [];
+      foreach ($collages as $c) {
+        if ($img = $c->cover()) {
+          $collageArray[] = [
             'src' => $img->resize(2400, 1600)->url(),
-            'url' => $b->url(),
-            'title' => (string)$b->title(),
-          ];
-        }
-      }
-
-      $fgArray = [];
-      foreach ($foregrounds as $f) {
-        if ($img = $f->cover()) {
-          $fgArray[] = [
-            'src' => $img->resize(900, 900)->url(),
-            'url' => $f->url(),
-            'title' => (string)$f->title(),
+            'url' => $c->url(),
+            'title' => (string)$c->title(),
           ];
         }
       }
@@ -60,29 +47,18 @@
 
     <section id="homepage-hero" class="homepage-hero">
       <div class="hero-bg">
-        <div class="hero-bg-layer" style="background-image: url('<?= $background ? $background->cover()->resize(2400,1600)->url() : '' ?>')"></div>
+        <div class="hero-bg-layer" style="background-image: url('<?= $collage ? $collage->cover()->resize(2400,1600)->url() : '' ?>')"></div>
         <div class="hero-bg-layer"></div>
       </div>
 
       <div class="hero-overlay">
-        <div class="hero-foreground">
-          <?php $i = 1; foreach ($foregroundItems as $item): ?>
-            <?php if ($img = $item->cover()): ?>
-              <a class="hero-foreground-item fg-pos-<?= $i ?>" href="<?= $item->url() ?>">
-                <img src="<?= $img->resize(900,900)->url() ?>" alt="<?= $item->alt()->esc() ?>">
-              </a>
-            <?php endif ?>
-          <?php $i++; endforeach ?>
-        </div>
-
-        <button id="hero-randomize" class="hero-randomize">Change pictures</button>
+        <button id="hero-randomize" class="hero-randomize">Change picture</button>
       </div>
     </section>
 
     <script>
       window.HOMEPAGE_FEATURES = {
-        backgrounds: <?= json_encode($bgArray) ?>,
-        foregrounds: <?= json_encode($fgArray) ?>
+        collages: <?= json_encode($collageArray) ?>
       };
     </script>
   <?php endif ?>

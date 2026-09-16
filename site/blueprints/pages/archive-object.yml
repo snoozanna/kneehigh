@@ -57,6 +57,7 @@ columns:
             options:
               costume: Costume
               photograph: Photograph
+              collage: Collage
               trailer: Trailer
               extendedTrailer: Extended Trailer
               documentation: Full Show Documentation
@@ -101,20 +102,17 @@ columns:
 
           is_featured:
             label: Feature this object on homepage?
-            type: select
-            default: none
-            options:
-              none: No
-              background: Background
-              foreground: Foreground
+            type: toggle
+            default: false
+            text:
+              - "No"
+              - "Yes"
 
           photographer_credit:
             label: Photographer Credit
             type: text
             placeholder: Photographer name
-            help: Enter the name of the photographer for this image.
-            when:
-              format: photograph
+            help: If this is a photo or collage, enter the name of the photographer.
 
           people:
             label: People

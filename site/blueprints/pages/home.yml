@@ -33,25 +33,10 @@ sections:
       text:
         type: blocks
 
-  archive-object-bg:
-    label: Featured Archive Objects - Background
+  archive-object-collages:
+    label: Featured Collages
     type: pages
-    query: kirby.page("archive").children.listed.filterBy("is_featured", "background")
-    parent: kirby.page("archive")
-    multiple: true
-    layout: cards
-    search: true
-    text: "{{ page.description.or(page.title) }}"
-    info: "{{ page.slug }}"
-    image:
-      query: page.cover
-      cover: true
-      ratio: 3/2
-    create: false
-  archive-object-fg:
-    label: Featured Archive Objects - Foreground
-    type: pages
-    query: kirby.page("archive").children.listed.filterBy("is_featured", "foreground")
+    query: kirby.page("archive").children.listed.filterBy("format", "collage").filterBy("is_featured", true)
     parent: kirby.page("archive")
     multiple: true
     layout: cards

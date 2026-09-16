@@ -35,6 +35,7 @@ html {
   font-family: var(--font-family-sans);
   color: var(--color-text);
   background: var(--color-background);
+  overflow-x: hidden;
 }
 img {
   width: 100%;
@@ -131,13 +132,16 @@ small {
 }
 
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-right: -1rem;
   margin-left: -1rem;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
+  background: var(--color-background);
+  z-index: 10;
 }
 
 .logo {
@@ -533,12 +537,14 @@ hr {
 .archive-embed__title {
   display: block;
   margin-top: 0.5rem;
+  font-weight: 900;
 }
 .archive-embed__meta {
   color: var(--color-black);
   font-size: 0.9rem;
   display: block;
   margin-top: 0.25rem;
+  font-weight: 900;
 }
 .archive-embed__desc {
   color: var(--color-black);
@@ -655,8 +661,23 @@ hr {
 /* STUDIO */
 
 .note-excerpt.studio {
+  position: relative;
   padding: 2rem;
-  background: #e2e6e9;
+  background-color: #e2e6e9;
+  isolation: isolate;
+  margin-bottom: 2rem;
+}
+
+.note-excerpt.studio::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--studio-texture);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  z-index: -1;
 }
 
 .note-excerpt.studio h2 {

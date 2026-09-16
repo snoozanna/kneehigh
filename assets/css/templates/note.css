@@ -17,10 +17,10 @@
   margin-bottom: 1.5rem;
 }
 .note-tags li {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 .note-tags a {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   display: block;
   background: var(--color-light);
 }
