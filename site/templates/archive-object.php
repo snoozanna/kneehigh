@@ -130,7 +130,7 @@
               ['responsive' => true],
               [
                 'loading' => 'lazy',
-                'allow' => 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture',
+                'allow' => 'clipboard-write; encrypted-media; fullscreen; picture-in-picture',
                 'class' => 'archive-video__iframe'
               ]
             ) ?>
@@ -147,7 +147,7 @@
             width="100%"
             height="166"
             frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
         </div>
