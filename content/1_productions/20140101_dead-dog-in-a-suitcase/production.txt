@@ -2,11 +2,15 @@ Title: Dead Dog in a Suitcase
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://naxcxtjdqsbytvpl'
 
 ----
 

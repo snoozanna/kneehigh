@@ -9,9 +9,9 @@
 return [
     'debug' => false,
     'yaml.handler' => 'symfony', // already makes use of the more modern Symfony YAML parser: https://getkirby.com/docs/reference/system/options/yaml (will become the default in a future Kirby version), 
-    'panel' => [
-    'install' => false
-  ],
+   'panel' => [
+    'theme' => 'light'
+  ]
   // 'cache' => [
   //   'pages' => [
   //     'active' => true,

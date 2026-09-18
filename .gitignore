@@ -5,7 +5,7 @@
 /vendor
 
 # Stuff you are creating
-/content
+/content*
 
 
 # System files

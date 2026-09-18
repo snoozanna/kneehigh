@@ -2,11 +2,15 @@ Title: Brief Encounter
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://ggko8c4tocwqem7c'
 
 ----
 
