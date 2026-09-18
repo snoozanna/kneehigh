@@ -33,10 +33,32 @@ return function ($page) {
         return $object->format()->value();
     });
 
+    $formatOrder = [
+        'trailer',
+        'extendedtrailer',
+        'extendedTrailer',
+        'documentation',
+        'film',
+        'photograph',
+        'music',
+    ];
+
+    $orderedArchiveObjects = new Kirby\Toolkit\Collection();
+    foreach ($formatOrder as $format) {
+        if ($groupedArchiveObjects->has($format)) {
+            $orderedArchiveObjects->set($format, $groupedArchiveObjects->get($format));
+            $groupedArchiveObjects->remove($format);
+        }
+    }
+
+    foreach ($groupedArchiveObjects as $format => $objects) {
+        $orderedArchiveObjects->set($format, $objects);
+    }
+
     return [
         'gallery' => $gallery,
         'archiveObjects' => $otherArchiveObjects,
-        'groupedArchiveObjects' => $groupedArchiveObjects,
+        'groupedArchiveObjects' => $orderedArchiveObjects,
         'formatOptions' => $formatOptions,
         'quotes' => $quotes,
     ];

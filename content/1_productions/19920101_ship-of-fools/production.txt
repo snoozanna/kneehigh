@@ -2,11 +2,15 @@ Title: Ship of Fools
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://39ybx1tirmas5g4e'
 
 ----
 

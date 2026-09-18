@@ -41,26 +41,7 @@
         <?= $page->text()->toBlocks() ?>
       </div>
 
-      <!-- Quotes -->
-      <?php if ($quotes->isNotEmpty()): ?>
-
-        <section class="person-quotes">
-
-          <h2><strong>Quotes</strong></h2>
-
-          <?php foreach ($quotes as $quote): ?>
-            <blockquote>
-              <img src="../assets/img/symbols/wild-bride.png" alt="<?= $page->title()->esc() ?>">
-              <br/>
-              "<?= $quote->text()->toBlocks() ?>"
-            </blockquote>
-            <br/>
-          <?php endforeach ?>
-
-        </section>
-
-      <?php endif ?>
-      <br/>
+    
 
       <!-- Archive Objects, sub-sectioned by format -->
       <?php if ($archiveObjects->isNotEmpty()): ?>
@@ -74,6 +55,9 @@
               $formatLabel = $formatOptions[$formatKey] ?? $formatKey;
               if ($formatKey === 'photograph') {
                 $formatLabel = 'Photographs';
+              }
+              if ($formatKey === 'extendedtrailer') {
+                $formatLabel = 'Extended Trailers';
               }
             ?>
             <h2><?= esc($formatLabel) ?></h2>
@@ -199,6 +183,37 @@
           <br/>
 
         <?php endforeach ?>
+<br/>
+     <!-- Quotes -->
+      <?php if ($quotes->isNotEmpty()): ?>
+
+        <section class="person-quotes">
+
+          <h2><strong>Quotes</strong></h2>
+
+          <?php foreach ($quotes as $quote): ?>
+            <blockquote>
+              <img src="../assets/img/symbols/wild-bride.png" alt="<?= $page->title()->esc() ?>">
+              <br/>
+              "<?= $quote->text()->toBlocks() ?>"
+                <footer>
+
+              <?php
+                $peopleLinks = [];
+                foreach ($quote->people()->toPages() as $person) {
+                  $peopleLinks[] = '<a href="' . $person->url() . '">' . $person->title()->esc() . '</a>';
+                }
+                echo implode(', ', $peopleLinks);
+              ?>
+
+            </footer>
+            </blockquote>
+            <br/>
+          <?php endforeach ?>
+
+        </section>
+
+      <?php endif ?>
 
 
       <?php else: ?>

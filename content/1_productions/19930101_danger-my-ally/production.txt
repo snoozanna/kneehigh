@@ -2,11 +2,15 @@ Title: Danger My Ally
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://cdpzt6tbbtubugj5'
 
 ----
 

@@ -2,11 +2,15 @@ Title: The Tin Drum
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://d5yogmfzwzwbtgoi'
 
 ----
 

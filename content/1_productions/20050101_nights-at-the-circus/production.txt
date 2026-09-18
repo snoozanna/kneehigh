@@ -2,11 +2,15 @@ Title: Nights at the Circus
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://efhjt7viwhbeokyy'
 
 ----
 

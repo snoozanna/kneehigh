@@ -2,11 +2,15 @@ Title: Wild Jam
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://e2lvdemaoq25igdj'
 
 ----
 

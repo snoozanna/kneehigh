@@ -2,11 +2,15 @@ Title: The Lost Stories of Don Quixote
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://iozcpdiipnj0tzzy'
 
 ----
 

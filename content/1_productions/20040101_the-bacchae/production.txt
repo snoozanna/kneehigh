@@ -2,11 +2,15 @@ Title: The Bacchae
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://jwia8vntom66mop3'
 
 ----
 

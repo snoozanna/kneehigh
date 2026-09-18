@@ -71,6 +71,6 @@
     <?= $page->text()->toBlocks() ?>
   </div>
 
-<a class="btn contents-btn contents-next" href="/pre-flight">Begin</a>
+<a class="btn contents-btn contents-next" href="/contents">Begin</a>
 
 <?php snippet('footer') ?>

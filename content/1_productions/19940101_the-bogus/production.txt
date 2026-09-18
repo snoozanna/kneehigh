@@ -2,11 +2,15 @@ Title: The Bogus
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://y3ybotaoshqdwbon'
 
 ----
 

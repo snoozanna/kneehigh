@@ -2,11 +2,15 @@ Title: Wagstaffe the Wind-up Boy
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://qve1qt8ncg6lszdq'
 
 ----
 

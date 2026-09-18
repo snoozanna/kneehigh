@@ -2,11 +2,15 @@ Title: The Riot
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://jrihy8b1xeik2hnm'
 
 ----
 

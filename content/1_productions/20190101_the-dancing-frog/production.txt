@@ -2,11 +2,15 @@ Title: The Dancing Frog
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://jl2smihyderjkjur'
 
 ----
 

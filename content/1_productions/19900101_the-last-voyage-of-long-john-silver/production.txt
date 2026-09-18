@@ -2,11 +2,15 @@ Title: The Last Voyage of Long John Silver
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://oflhrqg6vlfnagvj'
 
 ----
 

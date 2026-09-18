@@ -9,6 +9,7 @@ return function ($page) {
     $format = get('format');
     $production = get('production');
     $year = get('year');
+    $query = trim((string) get('q'));
 
     if ($format) {
         $allObjects = $allObjects->filterBy('format', $format);
@@ -27,6 +28,19 @@ return function ($page) {
             }
 
             return (string) $item->date()->toDate('Y') === (string) $year;
+        });
+    }
+
+    if ($query !== '') {
+        $searchQuery = mb_strtolower($query);
+        $allObjects = $allObjects->filter(function ($item) use ($searchQuery) {
+            $searchableText = implode(' ', [
+                $item->title()->value(),
+                $item->description()->value(),
+                $item->text()->value(),
+            ]);
+
+            return mb_stripos($searchableText, $searchQuery) !== false;
         });
     }
 
@@ -72,5 +86,6 @@ return function ($page) {
         'currentFormat' => $format,
         'currentProduction' => $production,
         'currentYear' => $year,
+        'currentQuery' => $query,
     ];
 };

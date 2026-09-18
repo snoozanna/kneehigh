@@ -2,11 +2,15 @@ Title: The Itch
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://wt9mabq0qen54no0'
 
 ----
 

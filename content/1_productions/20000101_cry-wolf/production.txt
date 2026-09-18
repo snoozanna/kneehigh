@@ -2,11 +2,15 @@ Title: Cry Wolf
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://tbe1zw3i1jfwfr3s'
 
 ----
 

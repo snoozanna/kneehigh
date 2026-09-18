@@ -179,6 +179,8 @@ $categoryMap = [
 
     'photograph' => 'photograph',
 
+    'collage' => 'collage',
+
     'trailer' => 'trailer',
 
     'extended trailer' => 'extendedTrailer',

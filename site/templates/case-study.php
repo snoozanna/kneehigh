@@ -34,7 +34,7 @@
   <!-- Related Productions -->
   <?php if ($relatedProductions->isNotEmpty()): ?>
   <div class="case-study-productions">
-    <h2><strong>Related Productions</strong></h2>
+    <h2 class="h2"><strong>Related Productions</strong></h2>
     <ul class="album-gallery">
       <?php foreach ($relatedProductions as $production): ?>
         <li>

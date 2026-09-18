@@ -2,11 +2,15 @@ Title: The Ashmaid
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://i9ttqxzrxn0rgkbc'
 
 ----
 

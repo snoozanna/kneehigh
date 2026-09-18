@@ -2,11 +2,15 @@ Title: The Wild Bride
 
 ----
 
+Subheadline: 
+
+----
+
 Text: 
 
 ----
 
-Cover: []
+Cover: - 'file://awsa9x6mlqcjiqlh'
 
 ----
 

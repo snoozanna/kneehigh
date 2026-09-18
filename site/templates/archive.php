@@ -2,6 +2,7 @@
 <?php snippet('intro') ?>
 
 <form class="archive-filters" method="get">
+ 
   <label>
     <span>Format</span>
     <select name="format" onchange="this.form.submit()">
@@ -37,8 +38,13 @@
       <?php endforeach ?>
     </select>
   </label>
+   <label>
+    <span>Search</span>
+    <input type="search" name="q" value="<?= htmlspecialchars($currentQuery ?? '', ENT_QUOTES, 'UTF-8') ?>">
+  </label>
 
-  <?php if (($currentFormat ?? '') || ($currentProduction ?? '') || ($currentYear ?? '')): ?>
+
+  <?php if (($currentQuery ?? '') || ($currentFormat ?? '') || ($currentProduction ?? '') || ($currentYear ?? '')): ?>
     <a href="<?= $page->url() ?>">Clear filters</a>
   <?php endif ?>
 </form>
