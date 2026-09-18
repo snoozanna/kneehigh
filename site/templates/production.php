@@ -192,15 +192,23 @@
           <h2><strong>Quotes</strong></h2>
 
           <?php foreach ($quotes as $quote): ?>
+            <?php
+              $quotePeople = $quote->people()->toPages();
+              $icon = $quotePeople->isNotEmpty() ? $quotePeople->first()->icon() : null;
+            ?>
             <blockquote>
-              <img src="../assets/img/symbols/wild-bride.png" alt="<?= $page->title()->esc() ?>">
+              <?php if ($icon): ?>
+                <img src="<?= $icon->url() ?>" alt="<?= $icon->alt()->or($quotePeople->first()->title())->esc() ?>">
+              <?php else: ?>
+                <img src="/assets/img/symbols/wild-bride.png" alt="<?= $page->title()->esc() ?>">
+              <?php endif ?>
               <br/>
               "<?= $quote->text()->toBlocks() ?>"
                 <footer>
 
               <?php
                 $peopleLinks = [];
-                foreach ($quote->people()->toPages() as $person) {
+                foreach ($quotePeople as $person) {
                   $peopleLinks[] = '<a href="' . $person->url() . '">' . $person->title()->esc() . '</a>';
                 }
                 echo implode(', ', $peopleLinks);

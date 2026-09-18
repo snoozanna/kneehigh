@@ -100,8 +100,17 @@
 
       <?php foreach ($items as $target): ?>
 
+        <?php
+          $quotePeople = $target->people()->toPages();
+          $icon = $quotePeople->isNotEmpty() ? $quotePeople->first()->icon() : null;
+        ?>
+
         <blockquote>
-<img src="assets/img/symbols/wild-bride.png" alt="Wild Bride">
+<?php if ($icon): ?>
+<img src="<?= $icon->url() ?>" alt="<?= $icon->alt()->or($quotePeople->first()->title())->esc() ?>">
+<?php else: ?>
+<img src="/assets/img/symbols/wild-bride.png" alt="Wild Bride">
+<?php endif ?>
 <br/>
           <?= $target->text()->toBlocks() ?>
 

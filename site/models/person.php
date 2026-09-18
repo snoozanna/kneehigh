@@ -20,4 +20,9 @@ class PersonPage extends Page
     {
         return $this->content()->get('cover')->toFile() ?? $this->image();
     }
+
+    public function icon()
+    {
+        return $this->content()->get('icon')->toFile();
+    }
 }

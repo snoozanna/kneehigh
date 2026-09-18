@@ -37,6 +37,12 @@ columns:
       meta:
         type: fields
         fields:
+          icon:
+            label: Quote Icon
+            type: files
+            multiple: false
+            layout: cards
+            help: "Optional icon shown on this person's page and above their quotes. If left empty, a default icon is used."
           roles:
             label: Role
             type: checkboxes

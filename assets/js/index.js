@@ -6,6 +6,41 @@ Array.from(document.querySelectorAll("[data-lightbox]")).forEach((element) => {
   };
 });
 
+// Page nav: highlight the link for the section currently in view
+document.addEventListener("DOMContentLoaded", () => {
+  const links = Array.from(document.querySelectorAll("[data-page-nav-link]"));
+  if (!links.length) return;
+
+  const sections = links
+    .map((link) =>
+      document.getElementById(link.getAttribute("data-page-nav-link")),
+    )
+    .filter(Boolean);
+
+  if (!sections.length) return;
+
+  const setActive = (slug) => {
+    links.forEach((link) => {
+      link.classList.toggle(
+        "is-active",
+        link.getAttribute("data-page-nav-link") === slug,
+      );
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting);
+      if (visible.length) {
+        setActive(visible[0].target.id);
+      }
+    },
+    { rootMargin: "-45% 0px -50% 0px" },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+});
+
 // Homepage hero randomize
 document.addEventListener("DOMContentLoaded", () => {
   const data = window.HOMEPAGE_FEATURES || null;

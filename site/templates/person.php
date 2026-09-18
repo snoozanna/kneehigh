@@ -25,8 +25,18 @@
 
 <article class="text">
 
+<?php $personIcon = $page->icon(); ?>
+
  <header class="h1">
-  <h1 class="img-caption"><?= $page->headline()->or($page->title())->esc() ?>
+  <h1 class="img-caption">
+    <span class="person-name">
+    <?php if ($personIcon): ?>
+      <img class="person-icon person-icon--inline" src="<?= $personIcon->url() ?>" alt="<?= $personIcon->alt()->or($page->title())->esc() ?>">
+    <?php else: ?>
+      <img class="person-icon person-icon--inline" src="/assets/img/symbols/wild-bride.png" alt="Wild Bride">
+    <?php endif ?>
+    <?= $page->headline()->or($page->title())->esc() ?>
+    </span>
         <?php if ($page->roles()->isNotEmpty()): ?>
 
       <?php
@@ -71,9 +81,15 @@
 
     <h2><strong>Quotes</strong></h2>
 
+    <?php $icon = $page->icon(); ?>
+
     <?php foreach ($quotes as $quote): ?>
      <blockquote>
-          <img src="../assets/img/symbols/wild-bride.png" alt="Wild Bride">
+          <?php if ($icon): ?>
+            <img src="<?= $icon->url() ?>" alt="<?= $icon->alt()->or($page->title())->esc() ?>">
+          <?php else: ?>
+            <img src="/assets/img/symbols/wild-bride.png" alt="Wild Bride">
+          <?php endif ?>
 <br/>
           
           "<?= $quote->text()->toBlocks() ?>"

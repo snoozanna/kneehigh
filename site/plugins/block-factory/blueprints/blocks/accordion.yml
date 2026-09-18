@@ -10,5 +10,16 @@ fields:
     placeholder: Enter summary...
   details:
     label: Detail
-    type: writer
-    marks: true
+    type: blocks
+    fieldsets:
+      - text
+      - heading
+      - quote
+      - list
+      - image
+      - gallery
+      - video
+      - line
+      - table
+      - code
+      - archive-reference

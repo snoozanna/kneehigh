@@ -35,6 +35,14 @@ columns:
             text:
               - "No"
               - "Yes"
+          show_page_nav:
+            label: Show sticky section navigation?
+            help: Adds a sticky menu of anchor links generated from this page's headings.
+            type: toggle
+            default: false
+            text:
+              - "No"
+              - "Yes"
           layout:
             label: Layout
             type: layout
