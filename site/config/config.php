@@ -12,6 +12,7 @@ return [
    'panel' => [
     'theme' => 'light',
     'install' => true,
+     'slug' => 'admin-area'
 
   ]
   // 'cache' => [
