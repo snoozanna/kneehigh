@@ -221,13 +221,10 @@ $categoryMap = [
 
 $featuredMap = [
 
-    'no' => 'none',
+    'no' => 'no',
 
-    'yes' => 'foreground',
+    'yes' => 'yes',
 
-    'background' => 'background',
-
-    'foreground' => 'foreground',
 
 ];
 
