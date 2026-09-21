@@ -14,9 +14,11 @@
   <footer class="footer">
     <div class="grid">
       <div class="column" style="--columns: 8">
-        <h2><a href="https://getkirby.com">Lorem ipsum</a></h2>
+        <h2>This website is best viewed on a desktop.</h2>
         <p>
-        Cras sit amet tellus nec leo luctus suscipit. 
+All photographs of by <a href="https://www.stevetanner.co.uk/" rel="noreferrer" target="_blank">Steve Tanner</a>, unless otherwise specified.</p>
+
+<p>The Kneehigh Scrapbook was created as part of the <b>Kneehigh Legacy Project (2024–2026)</b>, an Arts Council England-funded project sharing the spirit of Kneehigh with a new generation of theatre makers - through this resource and the <a href="https://www.kneehighbarns.com" rel="noreferrer" target="_blank">Kneehigh Barns</a>, a home for artists to make work, now and into the future.</p>
         </p>
       </div>
       <div class="column" style="--columns: 4">
