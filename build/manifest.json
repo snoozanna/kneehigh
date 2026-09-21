@@ -28,7 +28,7 @@
     ]
   },
   "assets/css/index.css": {
-    "file": "assets/index-CHfuRibW.css",
+    "file": "assets/index-CJnWy4Qs.css",
     "name": "index",
     "names": [
       "index.css"
@@ -73,7 +73,7 @@
     "isEntry": true
   },
   "assets/css/templates/archive.css": {
-    "file": "assets/archive-CD4hPmx0.css",
+    "file": "assets/archive-DiZNz0Xl.css",
     "name": "archive",
     "names": [
       "archive.css"
@@ -190,7 +190,7 @@
     "src": "assets/fonts/trixie-extra.otf"
   },
   "assets/js/index.js": {
-    "file": "assets/index-Bu7D-bIU.js",
+    "file": "assets/index-B5XsiCOg.js",
     "name": "index",
     "src": "assets/js/index.js",
     "isEntry": true
