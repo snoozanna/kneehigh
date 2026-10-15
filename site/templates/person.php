@@ -99,6 +99,7 @@
                   [
                     'loading' => 'lazy',
                     'allow' => 'clipboard-write; encrypted-media; fullscreen; picture-in-picture',
+                    'referrerpolicy' => 'strict-origin-when-cross-origin',
                     'class' => 'archive-video__iframe'
                   ]
                 ) ?>

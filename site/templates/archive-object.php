@@ -131,6 +131,7 @@
               [
                 'loading' => 'lazy',
                 'allow' => 'clipboard-write; encrypted-media; fullscreen; picture-in-picture',
+                'referrerpolicy' => 'strict-origin-when-cross-origin',
                 'class' => 'archive-video__iframe'
               ]
             ) ?>
@@ -148,6 +149,7 @@
             height="166"
             frameborder="0"
             allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
             loading="lazy"
           ></iframe>
         </div>
