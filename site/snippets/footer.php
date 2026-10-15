@@ -35,6 +35,6 @@ All photographs by <a href="https://www.stevetanner.co.uk/" rel="noreferrer" tar
     'assets/js/index.js',
     '@auto'
   ]) ?>
-
+<?php snippet('cookie-consent') ?>
 </body>
 </html>
