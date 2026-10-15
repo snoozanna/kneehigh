@@ -1,6 +1,6 @@
 <?php
 /*
-  Builds a sticky in-page navigation from the heading blocks
+  Builds a sticky in-page navigation from the h2 heading blocks
   used in the page's layout field, so long pages (e.g. devising)
   get an always-visible menu of anchor links to jump between sections.
 */
@@ -17,6 +17,10 @@ foreach ($page->layout()->toLayouts() as $layout) {
   foreach ($layout->columns() as $column) {
     foreach ($column->blocks() as $block) {
       if ($block->type() !== 'heading') {
+        continue;
+      }
+
+      if ($block->level()->or('h2')->value() !== 'h2') {
         continue;
       }
 
