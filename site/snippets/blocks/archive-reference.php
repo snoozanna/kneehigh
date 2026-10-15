@@ -133,7 +133,7 @@
         </blockquote>
 
       <?php endforeach ?>
-
+<br/>
 
     <!-- IN THE STUDIO -->
     <?php elseif ($block->display() == 'studio'): ?>
@@ -156,7 +156,7 @@
         </div>
 
       <?php endforeach ?>
-
+<br/>
 
     <!-- VIDEO -->
     <?php elseif ($block->display() == 'video'): ?>
@@ -198,40 +198,35 @@
         </div>
 
       <?php endforeach ?>
-
+<br/>
 
     <!-- MUSIC -->
     <?php elseif ($block->display() == 'music'): ?>
-
+<ul class="album-gallery">
       <?php foreach ($items as $target): ?>
 
-        <div class="archive-embed archive-embed--music">
+        <li class="archive-card music">
+        
+          <a href="<?= $target->url() ?>">
+            <?php if ($target->music_url()->isNotEmpty()): ?>
+              <p class="archive-embed__link">Listen &rarr;</p>
+            <?php endif ?>
+            <figcaption>
+              <span class="archive-embed__title">
+                <?= $target->description()->or($target->title()) ?>
+              </span>
+              <span class="archive-embed__meta">
+                <?= $target->date()->toDate('Y') ?>
+              </span>
+            </figcaption>
+          </a>
 
-          <?php if ($target->music_url()->isNotEmpty()): ?>
-
-            <p>
-              <a
-                href="<?= $target->music_url()->esc() ?>"
-                target="_blank"
-                rel="noopener"
-              >
-                Listen →
-              </a>
-            </p>
-
-          <?php endif ?>
-
-          <h2>
-            <a href="<?= $target->url() ?>">
-              <?= $target->headline()->or($target->title()) ?>
-            </a>
-          </h2>
-
-        </div>
+     
+        </li>
 
       <?php endforeach ?>
-
-
+</ul>
+<br/>
     <!-- EXTERNAL -->
     <?php elseif ($block->display() == 'external'): ?>
 
@@ -265,7 +260,7 @@
 
       <?php endforeach ?>
 
-
+<br/>
     <!-- INLINE -->
     <?php else: ?>
 

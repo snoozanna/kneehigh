@@ -20,7 +20,17 @@
 ?>
 <?php snippet('header') ?>
 <?php snippet('intro') ?>
+<section>
+  <div class="column" style="--columns: 12">
+    <div class="text">
+<p>We’ve chosen a handful of productions that reflect the diverse range of stories that Kneehigh created in its four decades of performance. Several of them have had more than one iteration, with Kneehigh returning to them time and time again. You can find a range of archive items relating to the productions at <a href="https://www.thisiskneehigh.co.uk" target="_blank" rel="noreferrer">thisiskneehigh.co.uk</a>, including programmes, posters and interviews with members of the casts and creative teams.</p>
 
+<p>In each example, Mike explains the main facts about each show and we’ve included extracts from interviews with Kneehigh alumni to support the information. </p>
+</div>
+  </div>
+</section>
+<br/>
+<section>
 <ul class="grid" style="--gutter: 1.5rem">
   <?php foreach ($page->children()->listed() as $study): ?>
   <li class="column" style="--columns: 3">
@@ -40,6 +50,7 @@
   </li>
   <?php endforeach ?>
 </ul>
+</section>
 <?php snippet('contents-navigation') ?>
 
 <?php snippet('footer') ?>

@@ -241,6 +241,9 @@ h6 {
 .text ul > li {
   list-style: disc;
 }
+.text ul > li::marker {
+  content: image-set(url("../img/symbols/barns-bullet.png") 2x) " ";
+}
 .text ol > li {
   list-style: decimal;
 }
@@ -590,6 +593,12 @@ hr {
 .album-gallery .archive-card {
   background: transparent;
 }
+
+.album-gallery .archive-card.music {
+  background: var(--color-light);
+  padding: 1rem;
+}
+
 .archive-card a {
   display: block;
   color: inherit;

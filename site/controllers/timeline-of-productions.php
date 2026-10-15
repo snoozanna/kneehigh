@@ -17,8 +17,11 @@ return function ($page) {
      * More about collections:
      * https://getkirby.com/docs/guide/templates/collections
      */
+
+    $productions = collection('productions')->sortBy('date', 'asc');
+    
    return [
-        'productions' => collection('productions')
+        'productions' => $productions
     ];
 
 };

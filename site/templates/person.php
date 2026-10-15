@@ -74,36 +74,6 @@
     <!-- Right column -->
     <div class="column" style="--columns: 8">
 
-<!-- Quotes  -->
- <?php if ($quotes->isNotEmpty()): ?>
-
-  <section class="person-quotes">
-
-    <h2><strong>Quotes</strong></h2>
-
-    <?php $icon = $page->icon(); ?>
-
-    <?php foreach ($quotes as $quote): ?>
-     <blockquote>
-          <?php if ($icon): ?>
-            <img src="<?= $icon->url() ?>" alt="<?= $icon->alt()->or($page->title())->esc() ?>">
-          <?php else: ?>
-            <img src="/assets/img/symbols/wild-bride.png" alt="Wild Bride">
-          <?php endif ?>
-<br/>
-          
-          "<?= $quote->text()->toBlocks() ?>"
-        </blockquote>
-
-
-
-<br/>
-    <?php endforeach ?>
-
-  </section>
-
-<?php endif ?>
-<br/>
 <!-- Archive Objects -->
   <?php if ($archiveObjects->isNotEmpty()): ?>
     <h2><strong>Archive Objects</strong></h2>
@@ -213,6 +183,36 @@
     </ul>
 
   <?php endif ?>
+<br/>
+  <!-- Quotes  -->
+ <?php if ($quotes->isNotEmpty()): ?>
+
+  <section class="person-quotes">
+
+    <h2><strong>Quotes</strong></h2>
+
+    <?php $icon = $page->icon(); ?>
+
+    <?php foreach ($quotes as $quote): ?>
+     <blockquote>
+          <?php if ($icon): ?>
+            <img src="<?= $icon->url() ?>" alt="<?= $icon->alt()->or($page->title())->esc() ?>">
+          <?php else: ?>
+            <img src="/assets/img/symbols/wild-bride.png" alt="Wild Bride">
+          <?php endif ?>
+<br/>
+          
+          "<?= $quote->text()->toBlocks() ?>"
+        </blockquote>
+
+
+
+<br/>
+    <?php endforeach ?>
+
+  </section>
+
+<?php endif ?>
 
 
     </div>

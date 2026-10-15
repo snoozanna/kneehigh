@@ -28,13 +28,16 @@
     ]
   },
   "assets/css/index.css": {
-    "file": "assets/index-CJnWy4Qs.css",
+    "file": "assets/index-Djmh-wQW.css",
     "name": "index",
     "names": [
       "index.css"
     ],
     "src": "assets/css/index.css",
-    "isEntry": true
+    "isEntry": true,
+    "assets": [
+      "assets/barns-bullet-CgOY4I2V.png"
+    ]
   },
   "assets/css/lightbox.css": {
     "file": "assets/lightbox-s99anj1z.css",
@@ -188,6 +191,10 @@
   "assets/fonts/trixie-extra.otf": {
     "file": "assets/trixie-extra-BhhAsFDV.otf",
     "src": "assets/fonts/trixie-extra.otf"
+  },
+  "assets/img/symbols/barns-bullet.png": {
+    "file": "assets/barns-bullet-CgOY4I2V.png",
+    "src": "assets/img/symbols/barns-bullet.png"
   },
   "assets/js/index.js": {
     "file": "assets/index-B5XsiCOg.js",
